@@ -7,7 +7,7 @@ trap : 2
 sysMem=`/sbin/sysctl hw.realmem | /bin/cut -d ' ' -f 2`
 minSize=`/bin/expr 250 \* 1024 \* 1024`
 if [ $sysMem -lt $minSize ] ; then
-        echo "Warning: PC-BSD requires a minimum of 256MB of RAM for optimal performance."
+        echo "Warning: TrueOS requires a minimum of 256MB of RAM for optimal performance."
         echo "You may experience problems with less than this ammount."
         echo ""
         echo "Press ENTER to continue"
@@ -22,7 +22,7 @@ kldload tmpfs
 mount -t tmpfs tmpfs /tmp
 
 # If we have a LIVE DVD image, boot with it
-if [ -e "/dist/PCBSD.ufs.uzip" ]
+if [ -e "/dist/TRUEOS.ufs.uzip" ]
 then
   MEM=`sysctl hw.realmem | /bin/cut -d " " -f 2`
 

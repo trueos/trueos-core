@@ -10,4 +10,4 @@ PAGER=more
 export PAGER
 MM_CHARSET="UTF-8"
 export MM_CHARSET
-/root/PCBSDStart.sh
+/root/TrueOSStart.sh

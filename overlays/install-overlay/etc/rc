@@ -79,8 +79,8 @@ if [ `/sbin/sysctl -n security.jail.jailed` -eq 1 ]; then
 	fi
 fi
 
-# Start PC-BSD Script
-sh /etc/pcbsd-rc.sh
+# Start TrueOS Script
+sh /etc/trueos-rc.sh
 
 # Do a first pass to get everything up to $early_late_divider so that
 # we can do a second pass that includes $local_startup directories

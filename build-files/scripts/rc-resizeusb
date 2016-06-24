@@ -29,14 +29,14 @@ resize_media()
 {
   dev="$1"
   rdev=`echo $dev | rev | cut -c 2- | rev`
-  glabel stop PCBSDUSB
+  glabel stop TRUEOSUSB
   glabel clear ${dev}
   echo "Resizing file-system $dev on $rdev, this may take a few minutes..."
   sleep 3 
   echo "Adjusting partition tables on $rdev..."
   gpart resize -i 1 $rdev >/dev/null 2>/dev/null
   sleep 3
-  glabel label PCBSDUSB ${dev}
+  glabel label TRUEOSUSB ${dev}
   sleep 3 
   echo "Running growfs on ${dev}, this may take a while..."
   growfs -y /dev/$dev >/dev/null 2>/dev/null
@@ -86,10 +86,10 @@ clear
 # Running LIVE USB image, lets resize
 #
 
-odev="/dev/ufs/PCBSDUSB"
-ndev="/dev/ufs/PCBSDUSB"
+odev="/dev/ufs/TRUEOSUSB"
+ndev="/dev/ufs/TRUEOSUSB"
 
-dev=`glabel status | grep PCBSDUSB | awk '{print $3}'`
+dev=`glabel status | grep TRUEOSUSB | awk '{print $3}'`
 if [ -n "$dev" ] ; then
   echo "Do you want to expand the file-system for this LIVE media?"
   echo "This process may take up to 15 minutes."
@@ -97,7 +97,7 @@ if [ -n "$dev" ] ; then
   read ans
   case $ans in
      y|Y) resize_media "$dev"
-          odev="/dev/ufs/PCBSDUSB"
+          odev="/dev/ufs/TRUEOSUSB"
           ndev="/dev/$dev"
           ;;
        *) ;;

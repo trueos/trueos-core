@@ -31,7 +31,7 @@ sysrc -f /etc/rc.conf socat_enable="YES"
 sysrc -f /etc/rc.conf socat_flags="UDP4-RECVFROM:53,fork UDP4-SENDTO:localhost:9530"
 
 # Make sure we have the default torrc file
-cp /usr/local/share/pcbsd/conf/torrc /usr/local/etc/tor/torrc
+cp /usr/local/share/trueos/conf/torrc /usr/local/etc/tor/torrc
 
 echo "Creating $rules."
 

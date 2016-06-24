@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=TrueOS Mount Tray
+Exec=/usr/local/share/trueos/xdg-auto/pc-mounttray.sh
+Terminal=false
+Type=Application
+Icon=drive-removable-media
+Categories=
+GenericName=
+X-GNOME-Autostart-Phase=Applications
+X-MATE-Autostart-Phase=Applications

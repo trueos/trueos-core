@@ -1,8 +1,18 @@
 Files in this directory:
 
+desktop/
+--------------------
+Subdirectory of files specific to the TrueOS desktop builds
+
+server/
+--------------------
+Sub-directory of the same files, specific to the TrueOS server builds
+
+Files in subdirectories:
+
 essential-packages
 --------------------
-List of packages that "pcbsd-build" will check for after doing a
+List of packages that "ixbuild" will check for after doing a
 poudriere run. If a package in this list didn't build properly, a
 warning will be generated for the package builder. 
 
@@ -21,12 +31,3 @@ iso-packages
 List of package files to put on the DVD/USB image, which will be
 available for the user to install during the first-time system installation.
 Packages not placed in here can be installed from AppCafe post-install.
-
-port-make.conf
---------------------
-List of port build options we use for our Poudriere runs, make changes
-here to adjust package options when using pcbsd-build scripts.
-
-trueos/
---------------------
-Sub-directory of the same files, specific to the TrueOS server builds
