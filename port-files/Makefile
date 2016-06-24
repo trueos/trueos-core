@@ -8,7 +8,7 @@ MASTER_SITES=
 DISTFILES=
 
 MAINTAINER=	jmaloney@ixsystems.com
-COMMENT=	TrueOS Desktop
+COMMENT=	TrueOS Core
 
 CONFLICTS=      pcbsd-utils*
 
