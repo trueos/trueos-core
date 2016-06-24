@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=TrueOS Updater Tray
+Exec=/usr/local/share/trueos/xdg-auto/checkupdater.sh
+Terminal=false
+Type=Application
+Icon=trueos
+Categories=
+GenericName=
+X-GNOME-Autostart-Phase=Applications
+X-MATE-Autostart-Phase=Applications
