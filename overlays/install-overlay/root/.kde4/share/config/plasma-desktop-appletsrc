@@ -45,7 +45,7 @@ zvalue=3
 slideTimer=10
 slidepaths=/usr/local/share/wallpapers/
 userswallpapers=
-wallpaper=/usr/local/share/wallpapers/pcbsd-default.jpg
+wallpaper=/usr/local/share/wallpapers/trueos-default.jpg
 wallpapercolor=0,0,0
 wallpaperposition=0
 

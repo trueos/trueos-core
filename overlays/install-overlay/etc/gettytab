@@ -36,7 +36,7 @@
 #     ep:op:  same as ap.
 #
 default:\
-	:cb:ce:ck:lc:fd#1000:im=\r\n** PCBSD %m on %t **\r\n\r\n:sp#1200:\
+	:cb:ce:ck:lc:fd#1000:im=\r\n** TRUEOS %m on %t **\r\n\r\n:sp#1200:\
 	:if=/etc/issue:
 
 root:al=root:tc=Pc:

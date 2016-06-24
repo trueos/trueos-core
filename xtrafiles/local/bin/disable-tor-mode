@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Start the reset firewall script
-/usr/local/share/pcbsd/scripts/reset-firewall
+/usr/local/share/trueos/scripts/reset-firewall
 
 cat << EOF
 

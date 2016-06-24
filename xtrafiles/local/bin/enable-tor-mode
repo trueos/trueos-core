@@ -12,7 +12,7 @@ if [ "$1" = "-c" ] ; then
 fi
 
 # Start the TOR firewall script
-/usr/local/share/pcbsd/scripts/reset-firewall-tor
+/usr/local/share/trueos/scripts/reset-firewall-tor
 
 cat << EOF
 

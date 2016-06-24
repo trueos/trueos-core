@@ -74,14 +74,14 @@ then
 	# Try mounting msdos media
 	mount_msdosfs ${i} /mnt >/dev/null 2>/dev/null
 	if [ $? -eq 0 ] ; then
-		cp ${TMPLOG} /mnt/pcbsd-install-debug.log
+		cp ${TMPLOG} /mnt/trueos-install-debug.log
 		umount /mnt
 		suc=1
 		break
 	fi
   done
   if [ $suc -eq 1 ] ; then
-	echo "Success! Saved to filename 'pcbsd-install-debug.log' on USB media."
+	echo "Success! Saved to filename 'trueos-install-debug.log' on USB media."
   else
 	echo "Failed copying log to USB media. You can manually copy from $TMPLOG"
   fi

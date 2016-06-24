@@ -2,7 +2,7 @@
 # Script to create a directory, and if on ZFS create a new dataset for it
 
 # Source our functions
-. /usr/local/share/pcbsd/scripts/functions.sh
+. /usr/local/share/trueos/scripts/functions.sh
 
 dir="$1"
 

@@ -22,7 +22,7 @@ if [ ! -e "/home" ] ; then
 fi
 
 # Init the firewall
-sh /usr/local/share/pcbsd/scripts/reset-firewall
+sh /usr/local/share/trueos/scripts/reset-firewall
 
 # Update XDG menus
 /usr/local/bin/pc-xdgutil updatemenu
@@ -81,11 +81,11 @@ if [ "$1" = "desktop" ] ;then
 
   # Copy the default desktop files over
   echo "Copying defaults to base system"
-  tar cvf - -C /usr/local/share/pcbsd/desktop-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  tar cvf - -C /usr/local/share/trueos/desktop-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
 
   # Need to save a language?
   if [ -n "$2" ] ; then
-     echo "$2" > /etc/pcbsd-lang
+     echo "$2" > /etc/trueos-lang
   fi
 fi
 
@@ -99,7 +99,7 @@ if [ "$1" = "server" ] ; then
 
   # Copy the default server files over
   echo "Copying defaults to base system"
-  tar cvf - -C /usr/local/share/pcbsd/server-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
+  tar cvf - -C /usr/local/share/trueos/server-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
 fi
 
 # Boot-strap the PKG config
