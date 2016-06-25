@@ -43,7 +43,7 @@ xwd-\*.txz
 xvkbd-\*.txz
 fribidi-\*.txz
 pc-sysinstall-\*.txz
-trueos-i18n-qt5-\*.txz
+pcbsd-i18n-qt5-\*.txz
 pc-sysinstall-\*.txz
 life-preserver-\*.txz
 grub2-pcbsd-\*.txz
