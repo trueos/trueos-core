@@ -18,5 +18,6 @@ sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/sysadm
 sysutils/sysadm-client
+sysutils/trueos-utils-qt5
 www/firefox
 www/qupzilla-qt5
