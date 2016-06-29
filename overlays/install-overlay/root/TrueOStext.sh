@@ -29,7 +29,7 @@ case $ANS in
      scfb) echo "Starting graphical installer (SCFB).. Please wait.."
  cp /root/cardDetect/XF86Config.scfb /etc/X11/xorg.conf
            startx 2>/tmp/Xerrors ;;
-    utility) /root/trueosUtil.sh
+    utility) /root/TrueOSUtil.sh
               clear ;;
      reboot)  reboot -q ;;
           *) ;;

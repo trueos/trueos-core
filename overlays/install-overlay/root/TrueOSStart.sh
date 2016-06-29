@@ -88,7 +88,7 @@ mkdir /tmp/.qt
 mkdir /tmp/xkb
 
 # Run the text menu
-/root/trueostext.sh
+/root/TrueOSText.sh
 
 # Check if we had a successful SysInstaller exit
 if [ -e "/root/.exitStatus" ] ; then
