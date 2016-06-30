@@ -40,6 +40,7 @@ nvidia-settings-\*.txz
 nvidia-xconfig-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
+xv-\*.txz
 fribidi-\*.txz
 pc-sysinstall-\*.txz
 pcbsd-i18n-qt5-\*.txz
