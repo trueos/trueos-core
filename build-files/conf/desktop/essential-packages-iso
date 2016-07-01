@@ -9,12 +9,13 @@ misc/pcbsd-meta-nvidia-340
 misc/trueos-server
 multimedia/openh264
 multimedia/webcamd
+net/dhcpcd
 print/cups-pdf
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/sysadm
 sysutils/sysadm-client
 sysutils/trueos-utils-qt5
-www/qupzilla-qt5
 sysutils/openrc
-net/dhcpcd
+www/qupzilla-qt5
+x11/nvidia-driver

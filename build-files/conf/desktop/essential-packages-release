@@ -22,3 +22,5 @@ sysutils/sysadm-client
 sysutils/trueos-utils-qt5
 www/firefox
 www/qupzilla-qt5
+x11/nvidia-driver
+x11-drivers/xf86-video-scfb
