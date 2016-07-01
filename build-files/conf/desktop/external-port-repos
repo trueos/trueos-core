@@ -1,0 +1,13 @@
+trueos/lpreserver
+trueos/pcdm
+trueos/pc-updatemanager
+trueos/pc-sysinstall
+trueos/openrc
+trueos/personacrypt
+trueos/qsudo
+trueos/trueos-desktop
+trueos/trueos-libsh
+trueos/trueos-libqt5
+trueos/trueos-utils
+trueos/trueos-utils-qt5
+trueos/trueos-server
