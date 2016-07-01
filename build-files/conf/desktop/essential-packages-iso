@@ -1,11 +1,7 @@
 graphics/xv
 mail/trojita
 misc/trueos-desktop
-misc/pcbsd-i18n
-misc/pcbsd-i18n-qt5
-misc/pcbsd-meta-hunspell
-misc/pcbsd-meta-nvidia
-misc/pcbsd-meta-nvidia-340
+misc/trueos-meta-hunspell
 misc/trueos-server
 multimedia/openh264
 multimedia/webcamd

@@ -2,13 +2,9 @@ editors/libreoffice
 graphics/xv
 mail/thunderbird
 mail/trojita
-misc/pcbsd-i18n
-misc/pcbsd-i18n-qt5
-misc/pcbsd-meta-hunspell
-misc/pcbsd-meta-nvidia
-misc/pcbsd-meta-nvidia-340
-misc/pcbsd-meta-virtualbox
-misc/pcbsd-toolchain
+misc/trueos-meta-hunspell
+misc/trueos-meta-virtualbox
+misc/trueos-toolchain
 misc/trueos-desktop
 misc/trueos-server
 multimedia/openh264
