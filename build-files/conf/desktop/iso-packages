@@ -21,5 +21,5 @@ sysutils/grub2-efi
 sysutils/trueos-utils-qt5
 www/qupzilla-qt5
 x11/lumina-i18n
-x11/nvidia
+x11/nvidia-driver
 x11-drivers/xf86-video-scfb
