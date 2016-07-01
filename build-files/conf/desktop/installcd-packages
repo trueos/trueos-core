@@ -31,7 +31,6 @@ font-alias-\*.txz
 font-cursor-misc\*.txz
 xcursor-themes-\*.txz
 xterm-\*.txz
-ibus-\*.txz
 qt5-core-\*.txz
 qt5-gui-\*.txz
 nvidia-driver-3[0-9][0-9].*.txz
