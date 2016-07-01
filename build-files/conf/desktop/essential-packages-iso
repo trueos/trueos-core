@@ -15,3 +15,5 @@ sysutils/trueos-utils-qt5
 sysutils/openrc
 www/qupzilla-qt5
 x11/nvidia-driver
+x11/nvidia-settings
+x11/nvidia-xconfig

@@ -33,7 +33,7 @@ xcursor-themes-\*.txz
 xterm-\*.txz
 qt5-core-\*.txz
 qt5-gui-\*.txz
-nvidia-driver-3[0-9][0-9].*.txz
+nvidia-driver-\*.txz
 nvidia-settings-\*.txz
 nvidia-xconfig-\*.txz
 xwd-\*.txz
@@ -46,4 +46,3 @@ grub2-pcbsd-\*.txz
 stunnel-\*.txz
 webcamd-\*.txz
 trueos-utils-qt5-\*.txz
-nvidia-driver-\*.txz
