@@ -1,5 +1,6 @@
 trueos/lpreserver
 trueos/pcdm
+trueos/pc-networkmanager
 trueos/pc-updatemanager
 trueos/pc-sysinstall
 trueos/openrc
