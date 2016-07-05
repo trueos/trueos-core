@@ -3,8 +3,6 @@
 Section "ServerLayout"
     Identifier     "XFree86 Configured"
     Screen      0  "Screen0" 0 0
-    InputDevice    "Mouse0" "CorePointer"
-    InputDevice    "Keyboard0" "CoreKeyboard"
     Option	   "Clone" "off"
 EndSection
 
@@ -18,19 +16,6 @@ Section "Module"
     Load	   "dri"
     Load           "extmod"
     Load	   "glx"
-EndSection
-
-Section "InputDevice"
-    Identifier     "Keyboard0"
-    Driver         "keyboard"
-    Option         "XkbModel" "pc105"
-    Option         "XkbLayout" "us"
-    Option         "XkbVariant" ""
-EndSection
-
-Section "InputDevice"
-    Identifier     "Mouse0"
-    Driver	   "vboxmouse"
 EndSection
 
 Section "Monitor"

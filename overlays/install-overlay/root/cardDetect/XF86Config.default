@@ -3,8 +3,6 @@
 Section "ServerLayout"
 	Identifier     "XFree86 Configured"
 	Screen      0  "Screen0" 0 0
-	InputDevice    "Mouse0" "CorePointer"
-	InputDevice    "Keyboard0" "CoreKeyboard"
 EndSection
 
 Section "Files"
@@ -43,19 +41,6 @@ Section "Module"
         Load  "glx"
         Load  "dri"
         Load  "dri2"
-EndSection
-
-Section "InputDevice"
-        Identifier  "Keyboard0"
-        Driver      "kbd"
-EndSection
-
-Section "InputDevice"
-        Identifier  "Mouse0"
-        Driver      "mouse"
-        Option      "Protocol" "auto"
-        Option      "Device" "/dev/sysmouse"
-        Option      "ZAxisMapping" "4 5"
 EndSection
 
 Section "Screen"
