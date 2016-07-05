@@ -65,6 +65,7 @@ if [ $? -eq 0 ] ; then
    else
       echo "Detected NVIDIA! Loading NVIDIA driver..."
       kldload nvidia
+      kldload nvidia-modeset
       sleep 1
    fi
 fi
