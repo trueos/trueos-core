@@ -1,5 +1,6 @@
 trueos/lpreserver
 trueos/pcdm
+trueos/pc-firewall
 trueos/pc-mixer
 trueos/pc-networkmanager
 trueos/pc-updatemanager
