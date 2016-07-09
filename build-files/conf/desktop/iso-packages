@@ -25,3 +25,4 @@ x11/nvidia-driver
 x11/nvidia-settings
 x11/nvidia-xconfig
 x11-drivers/xf86-video-scfb
+x11/qterminal
