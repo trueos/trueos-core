@@ -19,7 +19,7 @@ set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/
 
 setenv	CLICOLOR true
 setenv	EDITOR	vi
-setenv	PAGER	more
+setenv	PAGER	less
 setenv	BLOCKSIZE	K
 
 if ($?prompt) then
@@ -50,9 +50,6 @@ if ($?prompt) then
 		bindkey -k down history-search-forward
 	endif
 endif
-
-# Enable colors and such for git diffs
-setenv MORE "-erX"
 
 # See if we have VIM installed
 if ( -e /usr/local/bin/vim ) then
