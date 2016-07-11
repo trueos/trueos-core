@@ -18,6 +18,7 @@ sysutils/life-preserver
 sysutils/pc-sysinstall
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
+sysutils/trueos-utils
 sysutils/trueos-utils-qt5
 www/qupzilla-qt5
 x11/lumina-i18n
