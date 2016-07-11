@@ -5,6 +5,7 @@ usr/share/misc/commit*
 usr/share/misc/bsd-family-tree
 usr/share/misc/flowers
 usr/share/misc/birthtoken
+usr/sbin/pc-sysinstall
 usr/games
 usr/include
 usr/share/calendar
