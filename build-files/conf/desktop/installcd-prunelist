@@ -1,6 +1,7 @@
 compat/linux
 etc/rc.d/root
 usr/bin/gate-ftp
+usr/sbin/pc-sysinstall
 usr/share/misc/commit*
 usr/share/misc/bsd-family-tree
 usr/share/misc/flowers

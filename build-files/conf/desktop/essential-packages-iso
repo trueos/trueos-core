@@ -11,6 +11,7 @@ sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/sysadm
 sysutils/sysadm-client
+sysutils/trueos-utils
 sysutils/trueos-utils-qt5
 sysutils/openrc
 www/qupzilla-qt5

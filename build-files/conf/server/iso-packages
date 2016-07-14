@@ -1,4 +1,4 @@
-misc/trueos-server
 editors/vim
-misc/trueos-role-freenasbuild
+misc/trueos-server
 ports-mgmt/pkg
+sysutils/trueos-utils
