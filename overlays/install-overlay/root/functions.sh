@@ -228,8 +228,8 @@ zpool_import()
   echo ""
   echo "Available Boot-Environments:"
   echo "--------------------------------"
-  zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3
-  lastRoot=`zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3 | tail -n 1`
+  zfs list -r -H $mypool | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3
+  lastRoot=`zfs list -r -H $mypool | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3 | tail -n 1`
   echo "--------------------------------"
   echo -e "$lastRoot> \c"
   read mntBE
@@ -245,7 +245,7 @@ zpool_import()
     return 1
   fi
 
-  zfs list -H | tr -s '\t' ' ' | grep -v "${mypool}/ROOT/" | grep -v "$mypool " | grep -v " /mnt" > /tmp/.mntList.$$
+  zfs list -r -H $mypool | tr -s '\t' ' ' | grep -v "${mypool}/ROOT/" | grep -v "$mypool " | grep -v " /mnt" > /tmp/.mntList.$$
 
   while read line
   do
