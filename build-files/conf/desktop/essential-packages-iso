@@ -5,15 +5,14 @@ misc/trueos-meta-hunspell
 misc/trueos-server
 multimedia/openh264
 multimedia/webcamd
-net/dhcpcd
 print/cups-pdf
+print/cups-gutenprint
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/sysadm
 sysutils/sysadm-client
 sysutils/trueos-utils
 sysutils/trueos-utils-qt5
-sysutils/openrc
 www/qupzilla-qt5
 x11/nvidia-driver
 x11/nvidia-settings
