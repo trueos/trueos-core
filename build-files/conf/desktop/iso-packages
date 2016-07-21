@@ -11,7 +11,7 @@ multimedia/vlc
 multimedia/webcamd
 ports-mgmt/pkg
 print/cups-pdf
-print/cups-gutenprint
+print/gutenprint-cups
 security/openvpn
 sysutils/diskscrub
 sysutils/life-preserver

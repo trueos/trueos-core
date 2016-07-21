@@ -7,7 +7,7 @@ misc/trueos-server
 multimedia/openh264
 multimedia/webcamd
 print/cups-pdf
-print/cups-gutenprint
+print/gutenprint-cups
 sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/sysadm
