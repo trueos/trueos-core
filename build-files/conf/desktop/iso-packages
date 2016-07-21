@@ -23,8 +23,6 @@ sysutils/trueos-utils-qt5
 www/qupzilla-qt5
 x11/lumina-i18n
 x11/nvidia-driver
-x11/nvidia-settings
-x11/nvidia-xconfig
 x11/qterminal
 x11-drivers/xf86-video-scfb
 x11-fonts/noto-lite
