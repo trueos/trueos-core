@@ -1,5 +1,7 @@
 editors/libreoffice
 mail/thunderbird
+misc/trueos-desktop
+misc/trueos-server
 misc/trueos-meta-virtualbox
 misc/trueos-toolchain
 multimedia/openh264
