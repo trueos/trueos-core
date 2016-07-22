@@ -24,9 +24,6 @@ xauth-\*.txz
 xdpyinfo-\*.txz
 xset\*.txz
 dejavu-\*.txz
-font-misc-misc-\*.txz
-font-alias-\*.txz
-font-cursor-misc\*.txz
 xcursor-themes-\*.txz
 xterm-\*.txz
 qt5-core-\*.txz
