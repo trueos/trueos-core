@@ -13,7 +13,6 @@ fluxbox-\*.txz
 png-\*.txz
 tiff-\*.txz
 xorg-drivers-\*.txz
-xorg-libraries-\*.txz
 xorg-server-\*.txz
 xf86-video-intel-\*.txz
 xf86-video-scfb-\*.txz
@@ -33,8 +32,6 @@ xterm-\*.txz
 qt5-core-\*.txz
 qt5-gui-\*.txz
 nvidia-driver-\*.txz
-nvidia-settings-\*.txz
-nvidia-xconfig-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
 xv-\*.txz
