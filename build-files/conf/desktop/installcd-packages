@@ -25,7 +25,6 @@ xdpyinfo-\*.txz
 xset\*.txz
 dejavu-\*.txz
 xcursor-themes-\*.txz
-xterm-\*.txz
 qt5-core-\*.txz
 qt5-gui-\*.txz
 nvidia-driver-\*.txz
