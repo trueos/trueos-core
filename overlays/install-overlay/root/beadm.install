@@ -409,7 +409,7 @@ case ${1} in
       if __be_mounted ${POOL}/ROOT/${2}
       then
         MNT=$( mount | grep -E "^${POOL}/ROOT/${2} " | awk '{print $3}' )
-        if [ "${MNT}" != "/" ]
+        if [ "${MNT}" != "/mnt" ]
         then
           # boot environment is not current root and its mounted
           echo "ERROR: Boot environment '${2}' is mounted at '${MNT}'"
