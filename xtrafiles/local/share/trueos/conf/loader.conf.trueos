@@ -28,12 +28,6 @@ kern.cam.scsi_delay="500"
 # Skip the often slow memory tests in VMs
 hw.memtest.tests=0
 
-# Load Linux compat
-linuxkpi_load="YES" 
-linux_load="YES" 
-linux_common_load="YES" 
-linux64_load="YES"
-
 # Load geom support
 crypto_load="YES"
 geom_journal_load="YES"
