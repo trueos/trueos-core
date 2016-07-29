@@ -479,7 +479,7 @@ EOF
       | grep -E "^${POOL}/ROOT/${2}(/|$)" \
       | while read NAME
         do
-          zfs set canmount=on ${NAME}
+          zfs set canmount=noauto ${NAME}
           while __be_clone ${NAME}
           do
             zfs promote ${NAME}
