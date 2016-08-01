@@ -1,5 +1,5 @@
 trueos: {
-               url: "http://pkg.cdn.trueos.org/VERSION/ARCH",
+               url: "http://pkg.cdn.trueos.org/%VERSION%/%ARCH%",
 	       signature_type: "fingerprints",
                fingerprints: "/usr/local/etc/pkg/fingerprints/trueos",
                enabled: true
