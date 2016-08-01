@@ -15,5 +15,5 @@
 #   you can change the menu name in .fluxbox/init to:
 #     session.menuFile: /home/you/.fluxbox/my-menu
 [begin] (Fluxbox-1.0rc3)
-      [exec] (xterm) {xterm}
+#      [exec] (xterm) {xterm}
 [end]
