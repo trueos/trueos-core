@@ -3,8 +3,6 @@ graphics/xv
 mail/trojita
 misc/trueos-desktop
 misc/trueos-meta-hunspell
-misc/trueos-meta-virtualboxguest
-misc/trueos-meta-vmwareguest
 misc/trueos-server
 multimedia/openh264
 multimedia/vlc
