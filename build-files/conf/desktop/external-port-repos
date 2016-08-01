@@ -4,12 +4,16 @@ trueos/pc-firewall
 trueos/pc-mixer
 trueos/pc-networkmanager
 trueos/pc-updatemanager
+trueos/pc-pdfviewer
 trueos/pc-sysinstall
 trueos/personacrypt
 trueos/qsudo
+trueos/sysadm
+trueos/sysadm-ui-qt
 trueos/trueos-desktop
 trueos/trueos-libsh
 trueos/trueos-libqt5
 trueos/trueos-utils
 trueos/trueos-utils-qt5
 trueos/trueos-server
+
