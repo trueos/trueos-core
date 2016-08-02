@@ -11,6 +11,7 @@ trueos/qsudo
 trueos/sysadm
 trueos/sysadm-ui-qt
 trueos/trueos-desktop
+trueos/trueos-docs
 trueos/trueos-libsh
 trueos/trueos-libqt5
 trueos/trueos-utils
