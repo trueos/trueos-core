@@ -144,6 +144,30 @@ EndSection
   return 0
 }
 
+start_default_xorg()
+{
+
+  # Now run the X auto-detection
+  detect_x
+
+  ATTEMPT=0
+
+  # Try bringing up X now
+ startx
+
+ # If we have a success, we can end here
+ if [ -e "/tmp/.xstarted" ]; then
+   return 0
+ else
+   # Couldn't start a valid xorg session... Boo :-(
+   echo "ERROR: Failed to start X with automatic settings"
+   echo "[Press Enter to Continue]"
+   read tmp
+ fi
+ return 1
+}
+
+
 start_xorg()
 {
 
