@@ -132,6 +132,7 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable moused
   moused_enable="YES"
+  moused_flags="-A 1.5"
 
   # Enable the sysadm daemon
   sysadm_enable="YES"
