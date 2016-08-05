@@ -23,8 +23,8 @@ case $ANS in
     install) /usr/local/bin/pc-installdialog ;;
     xorg) echo "Starting graphical Installer (AutoDetect).. Please wait.."
           start_default_xorg ;;
-failsafe) echo "Starting graphical Installer (Failsafe Mode).. Please wait.."
-          start_xorg ;;
+#failsafe) echo "Starting graphical Installer (Failsafe Mode).. Please wait.."
+#          start_xorg ;;
      vesa) echo "Starting graphical Installer (VESA).. Please wait.."
  cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
            startx 2>/tmp/Xerrors ;;
