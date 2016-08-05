@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=pc-webkitviewer -t %c %i /usr/local/share/trueos/doc/html/trueos.html
+Exec=pc-webkitviewer -t %c %i /usr/local/share/trueos/handbook/trueos.html
 GenericName[en_US]=
 GenericName=
 Icon=/usr/local/share/trueos/icons/trueos-handbook.png
