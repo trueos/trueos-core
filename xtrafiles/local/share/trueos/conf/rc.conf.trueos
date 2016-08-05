@@ -25,6 +25,7 @@ if [ -e "/etc/defaults/trueos-server" -o -e "/etc/defaults/trueos" ] ; then
 
   # Enable openntpd
   openntpd_enable="YES"
+  openntpd_flags="-s"
 
   # Enable IPFW for Warden
   firewall_enable="YES"
@@ -141,6 +142,7 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable openntpd
   openntpd_enable="YES"
+  openntpd_flags="-s"
 
   # Enable IPFW for Warden
   firewall_enable="YES"
