@@ -115,7 +115,7 @@ cfg_card_busid()
   # Is this an Intel chipset?
   echo "$cfgCard" | grep -q -i -e "intel"
   if [ $? -eq 0 ] ; then
-     driver="intel"
+     driver="modesetting"
   fi
   echo "$cfgCard" | grep -q -i -e "nvidia"
   if [ $? -eq 0 ] ; then
@@ -166,9 +166,6 @@ start_default_xorg()
 start_xorg()
 {
 
-  # Now run the X auto-detection
-  detect_x
-
   ATTEMPT=0
 
   # Run X Now
@@ -180,20 +177,25 @@ start_xorg()
     if [ -e "/tmp/.xstarted" ]; then return 0; fi
 
     case $ATTEMPT in
-       0) # Lets try again with a secondary video card
+       0) # Lets try again with the primary video card specifically
+	  echo "Looking for primary video card..."
+          rm /etc/X11/xorg.conf 2>/dev/null
+	  detect_x
+          ;;
+       1) # Lets try again with a secondary video card
 	  echo "Looking for secondary / optimus video card..."
           rm /etc/X11/xorg.conf 2>/dev/null
           cfg_card_busid "2"
-          ;;
-       1) echo "Trying VESA driver..."
-          rm /etc/X11/xorg.conf
-          cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
           ;;
        2) # Try the Intel driver, since nvidia/vesa will fail on optimus cards
 	  echo "Trying Intel-only driver..."
           cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
           ;;
-       3) if [ `sysctl -n machdep.bootmethod` = "UEFI" ] ; then
+       3) echo "Trying VESA driver..."
+          rm /etc/X11/xorg.conf
+          cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+          ;;
+       4) if [ `sysctl -n machdep.bootmethod` = "UEFI" ] ; then
             # Last but not least, if we are on UEFI we can always try SCFB
 	    echo "Trying SCFB - UEFI driver..."
             cp /root/cardDetect/XF86Config.scfb /etc/X11/xorg.conf
