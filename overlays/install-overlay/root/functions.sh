@@ -148,7 +148,7 @@ start_default_xorg()
 {
 
   # Now run the X auto-detection
-  #detect_x
+  detect_x
 
   ATTEMPT=0
 
