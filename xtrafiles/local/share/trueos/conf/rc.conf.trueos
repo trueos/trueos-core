@@ -82,13 +82,8 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
   # FSCK Enhancements 
   fsck_y_enable="YES" 
  
-  # powerd: adaptive speed while on AC power, adaptive while on battery power
-  powerd_enable="YES"
-  powerd_flags="-a hiadaptive -b adaptive" # set CPU frequency
-
-  # Set some better defaults for power saving
-  performance_cx_lowest="Cmax"
-  economy_cx_lowest="Cmax"
+  # Use the new powerdxx from ports
+  powerdxx_enable="YES"
 
   # enable HAL / DBUS
   dbus_enable="YES"
