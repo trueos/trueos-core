@@ -7,6 +7,7 @@ trueos/pc-networkmanager
 trueos/pc-updatemanager
 trueos/pc-pdfviewer
 trueos/pc-sysinstall
+trueos/pc-webkitviewer
 trueos/personacrypt
 trueos/qsudo
 trueos/sysadm
