@@ -82,13 +82,8 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
   # FSCK Enhancements 
   fsck_y_enable="YES" 
  
-  # powerd: adaptive speed while on AC power, adaptive while on battery power
-  powerd_enable="YES"
-  powerd_flags="-a hiadaptive -b adaptive" # set CPU frequency
-
-  # Set some better defaults for power saving
-  performance_cx_lowest="Cmax"
-  economy_cx_lowest="Cmax"
+  # Use the new powerdxx from ports
+  powerdxx_enable="YES"
 
   # enable HAL / DBUS
   dbus_enable="YES"
@@ -116,7 +111,7 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
   pcdm_enable="YES"
 
   # Load the following kernel modules
-  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw if_iwm cuse sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse i915kms ums"
+  kld_list="i915kms libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw if_iwm cuse sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse ums"
 
   # Clean out temporary files.
   clear_tmp_enable="YES"
@@ -133,6 +128,7 @@ if [ -e "/etc/defaults/trueos-desktop" -o -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable moused
   moused_enable="YES"
+  moused_flags="-A 1.5"
 
   # Enable the sysadm daemon
   sysadm_enable="YES"

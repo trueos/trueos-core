@@ -24,5 +24,6 @@ x11/nvidia-driver
 x11/qterminal
 x11-drivers/xf86-video-scfb
 x11-fonts/noto-lite
+x11-fonts/noto
 x11-fonts/droid-fonts-ttf
 x11-themes/cursor-jimmac-theme

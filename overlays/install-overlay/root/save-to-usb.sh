@@ -46,19 +46,32 @@ saved=1
 # Lets check the various da* devices, look for a FAT32 USB mount
 for i in `ls /dev/da* 2>/dev/null`
 do
+   sleep 2
+
+   # Skip the install media
+   glabel status | grep "${i}p3" | grep -q "TRUEOS_INSTALL"
+   if [ $? -eq 0 ] ; then continue ; fi
+
    # Lets try to FAT mount
-   mount_msdosfs ${i} $MNTDIR 2>/dev/null
+   mount_msdosfs ${i} $MNTDIR
    if [ $? -ne 0 ] ; then continue ; fi
+
    if [ ! -d "${SAVECFGDIR}" ] ; then
       mkdir -p ${SAVECFGDIR}
    fi
    cat ${SYSCFG} | grep -v "encpass=" | grep -v "rootPass=" | grep -v "userPass=" > ${SAVECFGFILE}
    saved=0
-   echo "Saved config to USB: $i"
    sync
-   sleep 1
    umount ${MNTDIR}
+   echo "Saved config to USB: $i"
    break
 done
+
+if [ "$saved" = "1" ] ; then
+  echo "No USB media found.."
+fi
+
+echo "Press ENTER to continue"
+read tmp
 
 exit $saved

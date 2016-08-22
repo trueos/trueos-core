@@ -17,7 +17,7 @@ if [ $UID -gt 1000 ]; then
       # In case you are logged in via several terminals there would be an agent
       # running but the pid variable would be empty.
       if [ -z $(pgrep -u "${UID}" ssh-agent) ] || [ -z "${SSH_AGENT_PID}" ]; then
-          eval $(ssh-agent)
+          eval $(ssh-agent -s)
       fi
     fi
   fi
