@@ -1,19 +1,30 @@
 #!/bin/sh
 
 if [ "$1" = "-c" ] ; then
-  ipfw list | grep -q "fwd 127.0.0.1,9040 tcp from any to any out keep-state"
-  if [ $? -eq 0 ] ; then
-     echo "You are in Tor mode"
-     exit 0
+  if [ `id -u`]; then
+    if [ -e /tmp/.tormode_enabled ] ; then
+      echo "You are in Tor mode"
+      exit 0
+    else
+      echo "You are NOT in Tor mode"
+      exit 1
+    fi
   else
-     echo "You are NOT in Tor mode"
-     exit 1
+    ipfw list | grep -q "fwd 127.0.0.1,9040 tcp from any to any out keep-state"    
+    if [ $? -eq 0 ] ; then
+      echo "You are in Tor mode"
+      exit 0
+    else
+      echo "You are NOT in Tor mode"
+      exit 1
+    fi
   fi
 fi
 
 # Start the TOR firewall script
 /usr/local/share/trueos/scripts/reset-firewall-tor
 
+touch /tmp/.tormode_enabled
 cat << EOF
 
 Tor mode has been enabled
