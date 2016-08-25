@@ -4,6 +4,7 @@ trueos/lumina
 trueos/pcdm
 trueos/pc-firewall
 trueos/pc-mixer
+trueos/pc-mounttray
 trueos/pc-networkmanager
 trueos/pc-updatemanager
 trueos/pc-pdfviewer
