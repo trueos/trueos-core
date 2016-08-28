@@ -53,7 +53,7 @@ do
    if [ $? -eq 0 ] ; then continue ; fi
 
    # Lets try to FAT mount
-   mount_msdosfs ${i} $MNTDIR
+   mount -t msdosfs ${i} $MNTDIR
    if [ $? -ne 0 ] ; then continue ; fi
 
    if [ ! -d "${SAVECFGDIR}" ] ; then
