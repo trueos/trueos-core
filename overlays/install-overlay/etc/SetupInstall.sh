@@ -18,9 +18,6 @@ export PATH
 # Load the extra klds we need
 /etc/rc.d/kld start
 
-# Check for optimus / video drivers
-/etc/trueos-video.sh
-
 # See if we have install / meta pkgs for the front-end to use
 if [ -e "/dist/no-meta-pkgs" ] ; then touch /tmp/no-meta-pkgs ; fi
 if [ -e "/dist/no-install-pkgs" ] ; then touch /tmp/no-install-pkgs ; fi
