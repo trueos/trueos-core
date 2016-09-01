@@ -166,6 +166,9 @@ start_default_xorg()
 start_xorg()
 {
 
+  # Determine what modules we may need to load
+  sh /etc/trueos-video.sh
+
   ATTEMPT=0
 
   # Run X Now
