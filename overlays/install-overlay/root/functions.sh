@@ -169,6 +169,9 @@ start_xorg()
   # Determine what modules we may need to load
   sh /etc/trueos-video.sh
 
+  # Allow time for trueos-video.sh to load modules if needed
+  sleep 5
+
   ATTEMPT=0
 
   # Run X Now
