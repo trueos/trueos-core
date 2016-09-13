@@ -195,7 +195,7 @@ start_xorg()
           ;;
        2) # Try the Intel driver, since nvidia/vesa will fail on optimus cards
 	  echo "Trying Intel-only driver..."
-          cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+          cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
           ;;
        3) echo "Trying VESA driver..."
           rm /etc/X11/xorg.conf
