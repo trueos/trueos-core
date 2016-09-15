@@ -52,6 +52,7 @@ if [ $? -eq 0 ] ; then
       sleep 1
    fi
    kldload i915kms
+   cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
 fi	
 
 # Check for optimus with intel as first card
@@ -63,6 +64,7 @@ if [ $? -eq 0 ] ; then
       sleep 1
    fi
    kldload i915kms
+   cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
 fi
 
 # Check for optimus with nvidia as first card
@@ -73,10 +75,12 @@ if [ $? -eq 0 ] ; then
       echo "Detected Optimus! Using intel video..."
       sleep 1
       kldload i915kms
+      cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
    else
       echo "Detected NVIDIA! Loading NVIDIA driver..."
       kldload nvidia
       kldload nvidia-modeset
+      rm /etc/X11/xorg.conf 2>/dev/null
       sleep 1
    fi
 fi

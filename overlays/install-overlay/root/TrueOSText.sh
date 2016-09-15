@@ -22,7 +22,6 @@ ANS="`cat /tmp/answer`"
 case $ANS in
     install) /usr/local/bin/pc-installdialog ;;
     xorg) echo "Starting graphical Installer (AutoDetect).. Please wait.."
-          rm /etc/X11/xorg.conf 2>/dev/null
           start_xorg ;;
      vesa) echo "Starting graphical Installer (VESA).. Please wait.."
  cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
