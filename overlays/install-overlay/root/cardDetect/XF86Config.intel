@@ -51,5 +51,6 @@ EndSection
 Section "Device"
         Identifier      "Card0"
         Driver          "intel"
+	Option      	"AccelMethod"               "none"
 EndSection
 

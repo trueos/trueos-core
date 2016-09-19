@@ -166,6 +166,12 @@ start_default_xorg()
 start_xorg()
 {
 
+  # Determine what modules we may need to load
+  sh /etc/trueos-video.sh
+
+  # Allow time for trueos-video.sh to load modules if needed
+  sleep 5
+
   ATTEMPT=0
 
   # Run X Now
@@ -189,7 +195,7 @@ start_xorg()
           ;;
        2) # Try the Intel driver, since nvidia/vesa will fail on optimus cards
 	  echo "Trying Intel-only driver..."
-          cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+          cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
           ;;
        3) echo "Trying VESA driver..."
           rm /etc/X11/xorg.conf

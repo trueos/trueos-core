@@ -55,7 +55,7 @@ then
 
   # For PBI applications
   GTK_IM_MODULE="xim" ; export GTK_IM_MODULE
-  GTK_IM_MODULE_FILE=/usr/local/etc/gtk-2.0/gtk.immodules ; export GTK_IM_MODULE_FILE
+  GTK_IM_MODULE_FILE=/usr/local/lib/gtk-2.0/2.10.0/immodules.cache ; export GTK_IM_MODULE_FILE
   /usr/local/bin/ibus-daemon --xim &
 
   # Enable GDK_NATIVE_WINDOWS
