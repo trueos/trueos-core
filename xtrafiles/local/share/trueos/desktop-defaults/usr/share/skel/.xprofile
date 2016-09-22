@@ -14,7 +14,7 @@ xrdb ~/.Xresources
 for i in $(ls /usr/local/share/trueos/xstartup/*.sh)
 do
 	# Run some task in the background to run in parallel
-	if [ $i = "/usr/local/share/trueos/xstartup/enable-ibus.sh" ] || [ $i = "/usr/local/share/trueos/xstartup/gpg-agent.sh" ] || [ $i = "/usr/local/share/trueos/xstartup/ssh-agent.sh" ] ; then
+	if [ $i = "/usr/local/share/trueos/xstartup/enable-inputmethod.sh" ] || [ $i = "/usr/local/share/trueos/xstartup/gpg-agent.sh" ] || [ $i = "/usr/local/share/trueos/xstartup/ssh-agent.sh" ] ; then
 		# Cannot work "VARIABLE=value ; export VARIABLE" in the
 		# fork(2)ed script.
 		if [ -x "${i}" ] ; then . ${i}
