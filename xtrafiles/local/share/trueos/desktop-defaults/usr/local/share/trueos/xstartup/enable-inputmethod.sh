@@ -45,9 +45,9 @@ fi
 # If we are using input method, set vars and enable daemon
 if [ "${ENABLE}" = "YES" ]; then
   # For PBI applications
-  GTK_IM_MODULE="fcitx" ; export GTK_IM_MODULE
-  GTK3_IM_MODULE="xim"  ; export GTK3_IM_MODULE
-  GTK_IM_MODULE_FILE=/usr/local/lib/gtk-2.0/2.10.0/immodules.cache ; export GTK_IM_MODULE_FILE
+
+  #GTK_IM_MODULE="fcitx" ; export GTK_IM_MODULE
+  GTK_IM_MODULE="xim"  ; export GTK_IM_MODULE	# For GTK3
   QT_IM_MODULE="fcitx"   ; export QT_IM_MODULE
   XMODIFIERS="@im=fcitx" ; export XMODIFIERS
 
