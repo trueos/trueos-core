@@ -2,7 +2,7 @@ emulators/open-vm-tools
 emulators/virtualbox-ose-additions
 graphics/phototonic
 graphics/xv
-mail/trojita
+mail/thunderbird
 misc/trueos-desktop
 misc/trueos-meta-hunspell
 misc/trueos-server
@@ -20,8 +20,8 @@ sysutils/grub2-pcbsd
 sysutils/grub2-efi
 sysutils/trueos-utils
 sysutils/trueos-utils-qt5
-www/qupzilla-qt5
-x11/lumina-i18n
+www/firefox
+x11/lumina
 x11/nvidia-driver
 x11/qterminal
 x11-drivers/xf86-video-scfb
