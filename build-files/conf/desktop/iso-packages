@@ -29,3 +29,6 @@ x11-fonts/noto-lite
 x11-fonts/noto
 x11-fonts/droid-fonts-ttf
 x11-themes/cursor-jimmac-theme
+sysutils/fusefs-ntfs
+x11/xterm
+x11/xrdb
