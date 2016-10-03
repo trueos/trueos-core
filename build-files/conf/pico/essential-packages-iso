@@ -1,4 +1,5 @@
 audio/pulseaudio
 net/freerdp
+net/tigervnc
 x11/xorg
 x11/xterm
