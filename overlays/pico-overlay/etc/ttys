@@ -1,4 +1,4 @@
-ttyv0   "/usr/libexec/getty Pc"         xterm   on  secure
+ttyv0   "/usr/libexec/getty root"       xterm   on  secure
 ttyv1   "/usr/libexec/getty Pc"         xterm   on  secure
 ttyv2   "/usr/libexec/getty Pc"         xterm   on  secure
 ttyv3   "/usr/libexec/getty Pc"         xterm   on  secure
