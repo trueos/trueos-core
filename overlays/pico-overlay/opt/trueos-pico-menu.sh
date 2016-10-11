@@ -24,7 +24,7 @@ read -t 5 tmp
 if [ $? -eq 0 ] ; then
   echo "Pressed ENTER"
 else
-  /opt/startx
+  #/opt/startx
 fi
 
 exit 0
