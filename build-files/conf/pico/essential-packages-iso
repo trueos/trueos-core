@@ -1,7 +1,7 @@
 audio/pulseaudio
+lang/go
 net/tightvnc
 security/openssh-portable
 x11/xorg
 x11/xterm
-x11/virtualgl
 x11-drivers/xf86-video-scfb

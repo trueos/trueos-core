@@ -1,7 +1,7 @@
 pulseaudio
 tightvnc
 openssl-portable
-virtualgl
+go
 xorg
 xterm
 xf86-video-scfb
