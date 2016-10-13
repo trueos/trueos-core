@@ -1,5 +1,4 @@
 audio/pulseaudio
-lang/go
 net/tightvnc
 security/openssh-portable
 x11/xorg
