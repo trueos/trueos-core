@@ -19,12 +19,22 @@ if [ $? -eq 0 ] ; then
   . /opt/RPI2/setup
 fi
 
-echo "Starting X in 5 seconds, press ENTER for menu"
-read -t 5 tmp
-if [ $? -eq 0 ] ; then
-  echo "Pressed ENTER"
-else
-  #/opt/startx
-fi
+while :
+do
+  clear
+  echo "Starting X in 5 seconds, press ENTER to cancel"
+  read -t 5 tmp
+  if [ $? -eq 0 ] ; then
+    break
+  else
+    /opt/pico-client
+    if [ $? -eq 0 ] ; then
+       startx
+    else
+       echo "Failed contacting PICO server.. Retry in 10 seconds"
+       sleep 10
+    fi
+  fi
+done
 
 exit 0
