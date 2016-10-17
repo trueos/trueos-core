@@ -27,8 +27,26 @@ do
   if [ $? -eq 0 ] ; then
     break
   else
-    /opt/pico-client
-    if [ $? -eq 0 ] ; then
+    GETKEY="NO"
+    if [ ! -e "/tmp/pico-id_rsa" ];then
+      GETKEY="YES"
+    fi
+    if [ -e "/tmp/last_result" ] ; then
+      if [ "`cat /tmp/last_result`" != "0" ] ; then
+        GETKEY="YES"
+      fi
+    fi
+
+    DOX="YES"
+    # Check if we need a new PICO login
+    if [ "$GETKEY" = "YES" ]; then
+      /opt/pico-client
+      if [ $? -ne 0 ] ; then
+        DOX="NO"
+      fi
+    fi
+
+    if [ "$DOX" = "YES" ] ; then
        startx
     else
        echo "Failed contacting PICO server.. Retry in 10 seconds"
