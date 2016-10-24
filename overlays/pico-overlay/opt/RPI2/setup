@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Disable power save (Fixes issues with some USB keyboards going to sleep)
+usbconfig -d 0.2 power_on
+
+# Set to 900Mhz
+sysctl dev.cpu.0.freq=900

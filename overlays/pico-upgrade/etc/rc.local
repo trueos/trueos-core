@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Look for memory card, locate upgrade.img / upgrade.img.sha256
+
+# Copy to tmpfs
+
+# Umount memory card
+
+# Checksum
+
+# Re-flash media
+
+# Reboot
