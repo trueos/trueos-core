@@ -18,6 +18,7 @@ if [ $UID -gt 1000 ]; then
       # running but the pid variable would be empty.
       if [ -z $(pgrep -u "${UID}" ssh-agent) ] || [ -z "${SSH_AGENT_PID}" ]; then
           eval $(ssh-agent -s)
+          eval $(ssh-add -l)
       fi
     fi
   fi
