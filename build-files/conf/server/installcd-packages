@@ -1,3 +1,5 @@
+dhcpcd-\*.txz
 trueos-server-\*.txz
 trueos-utils-\*.txz
 pc-sysinstall-\*.txz
+wpa_supplicant-\*.txz

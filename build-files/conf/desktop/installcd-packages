@@ -1,3 +1,4 @@
+dhcpcd-\*.txz
 expat-\*.txz
 fontconfig-\*.txz
 freetype2-\*.txz
@@ -43,3 +44,4 @@ qterminal-\*.txz
 noto-\*.txz
 open-vm-tools-\*.txz
 virtualbox-ose-additions-\*.txz
+wpa_supplicant-\*.txz

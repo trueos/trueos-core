@@ -42,8 +42,10 @@ do
   ln -s /mntuzip/usr/$i /usr/$i
 done
 
-# Load the extra klds we need
-/etc/rc.d/kld start
+# Load extra services we need
+/usr/local/etc/init.d/dhcpcd start
+/usr/local/etc/init.d/wpa_supplicant start
+/usr/local/etc/init.d/dbus start
 
 # Check for optimus / video drivers
 /etc/trueos-video.sh
