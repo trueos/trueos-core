@@ -235,7 +235,7 @@ zpool_import()
   clear
   echo "Please enter the pool name to import"
   echo ""
-  echo "Available zpools:"
+  echo "Available pools:"
   echo "--------------------------------"
   zpool import | grep "pool: " | awk '{print $2}'
   echo "--------------------------------"
@@ -291,7 +291,7 @@ zpool_import()
   # Mount devfs into the zpool lastly
   mount -t devfs devfs /mnt/dev
 
-  echo "Finished mounting zpool: $mypool"
+  echo "Finished mounting pool: $mypool"
 
   # If function run without chroot prompt requested
   if [ "$1" = "nochroot" ] ; then return 0 ; fi
@@ -315,7 +315,7 @@ restamp_grub_install()
   if [ $? -ne 0 ] ; then
      zpool_import "nochroot"
      if [ $? -ne 0 ] ; then
-        echo "Failed importing zpool! Please import a pool before doing grub-install."
+        echo "Failed importing pool! Please import a pool before doing grub-install."
         rtn
         return
      fi
