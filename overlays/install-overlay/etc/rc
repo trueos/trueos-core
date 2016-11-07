@@ -24,5 +24,12 @@ sh /etc/trueos-rc.sh
 /sbin/openrc boot || exit 1
 /sbin/openrc default
 
+# Load extra services we need
+/etc/init.d/devd start
+/usr/local/etc/init.d/dhcpcd start
+/usr/local/etc/init.d/wpa_supplicant start
+/usr/local/etc/init.d/dbus start
+
 # We don't actually care if rc default worked or not, we should exit 0
 # to allow logins
+
