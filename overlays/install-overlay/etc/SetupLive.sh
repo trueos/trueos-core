@@ -43,6 +43,8 @@ do
 done
 
 # Load extra services we need
+/etc/init.d/modules start
+/etc/init.d/zfs start
 /usr/local/etc/init.d/dhcpcd start
 /usr/local/etc/init.d/wpa_supplicant start
 /usr/local/etc/init.d/dbus start
