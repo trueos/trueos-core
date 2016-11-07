@@ -17,6 +17,9 @@
 trap : SIGINT
 trap "echo 'Boot interrupted'; exit 1" SIGQUIT
 
+# Start TrueOS Script
+sh /etc/trueos-rc.sh
+
 /sbin/openrc sysinit || exit 1
 /sbin/openrc boot || exit 1
 /sbin/openrc default
