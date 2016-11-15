@@ -8,6 +8,7 @@ misc/trueos-meta-hunspell
 misc/trueos-server
 multimedia/openh264
 multimedia/webcamd
+net/dhcpcd
 print/cups-pdf
 print/gutenprint-cups
 sysutils/grub2-pcbsd
@@ -21,6 +22,7 @@ x11/nvidia-driver
 x11/qterminal
 x11-fonts/noto
 x11-fonts/noto-lite
+security/wpa_supplicant
 sysutils/fusefs-ntfs
 x11/xterm
 x11/xrdb
