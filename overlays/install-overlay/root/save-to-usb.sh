@@ -53,7 +53,7 @@ do
    if [ $? -eq 0 ] ; then continue ; fi
 
    # Lets try to FAT mount
-   mount -t msdosfs ${i} $MNTDIR
+   mount -t msdosfs ${i} $MNTDIR 2>/dev/null
    if [ $? -ne 0 ] ; then continue ; fi
 
    if [ ! -d "${SAVECFGDIR}" ] ; then
@@ -68,7 +68,7 @@ do
 done
 
 if [ "$saved" = "1" ] ; then
-  echo "No USB media found.."
+  echo "No writable USB media found.."
 fi
 
 echo "Press ENTER to continue"
