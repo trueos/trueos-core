@@ -16,9 +16,6 @@ tmpfs_load="YES"
 # Disable acpi throttle by default, fixes issues with powerd and later AMDs
 hint.acpi_throttle.0.disabled="1"
 
-# Fix crashes on 32bit with Nvidia
-machdep.disable_mtrrs=1
-
 # Show keystokes for passphrases
 kern.geom.eli.visible_passphrase=2 
 
@@ -30,8 +27,6 @@ hw.memtest.tests=0
 
 # Load geom support
 crypto_load="YES"
-geom_journal_load="YES"
-geom_mirror_load="YES"
 geom_eli_load="YES"
 
 # Enable hardware crypto
@@ -74,3 +69,6 @@ hw.psm.elantech_support="1"
 
 # Speed up boot time
 autoboot_delay="02"
+
+# Enable the TrueOS splash-screen
+boot_mute="YES"
