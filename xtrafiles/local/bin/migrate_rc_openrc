@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ ! -e /etc/rc.conf ] ; then
+  exit 0
+fi
+
+. /etc/rc.conf
+
+for var in `set | grep "_enable="`
+do
+  key=`echo $var | cut -d '=' -f 1 | sed 's|_enable||g'`
+  val=`echo $var | cut -d '=' -f 2`
+  if [ "$val" != "YES" ] ; then continue; fi
+  service -e $key
+  if [ $? -eq 0 ] ; then
+    rc-update | grep -q " $key |"
+    if [ $? -eq 0 ] ; then
+      echo "OpenRC service for $key already enabled, skipping.."
+    else
+      echo "Adding OpenRC service for $key to default runlevel..."
+      rc-update add $key default
+    fi
+  else
+    echo "OpenRC service for $key not found, skipping.."
+  fi
+done
