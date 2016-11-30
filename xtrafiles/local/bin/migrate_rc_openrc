@@ -11,10 +11,8 @@ do
   key=`echo $var | cut -d '=' -f 1 | sed 's|_enable||g'`
   val=`echo $var | cut -d '=' -f 2`
   if [ "$val" != "YES" ] ; then continue; fi
-  service -e $key
-  if [ $? -eq 0 ] ; then
-    rc-update | grep -q " $key |"
-    if [ $? -eq 0 ] ; then
+  if [ -e "/etc/init.d/$key" -o -e "/usr/local/etc/init.d/$key" ] ; then
+    if [ -e "/etc/runlevels/default/$key" ] ; then
       echo "OpenRC service for $key already enabled, skipping.."
     else
       echo "Adding OpenRC service for $key to default runlevel..."
