@@ -10,6 +10,9 @@ sysutils/trueos-utils-qt5
 www/firefox
 www/chromium
 graphics/inkscape
-audio/qmmp
+multimedia/obs-studio/
+multimedia/openshot
+multimedia/qmmp-qt5
+multimedia/qmmp-plugin-pack-qt5
 audio/virtual_oss
 audio/virtual_oss_ctl
