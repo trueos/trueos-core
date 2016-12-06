@@ -10,7 +10,11 @@ for var in `set | grep "_enable="`
 do
   key=`echo $var | cut -d '=' -f 1 | sed 's|_enable||g'`
   val=`echo $var | cut -d '=' -f 2`
-  if [ "$val" != "YES" ] ; then continue; fi
+  if [ "$val" != "YES" ] && [ "$val" != "NO" ] ; then continue; fi
+  if [ "$val" = "NO ] && [ -e "/etc/runlevels/default/$key" ] ; then
+      echo "Deleting OpenRC service for $key to default runlevel..."
+      rc-update delete $key default
+  fi
   if [ -e "/etc/init.d/$key" -o -e "/usr/local/etc/init.d/$key" ] ; then
     if [ -e "/etc/runlevels/default/$key" ] ; then
       echo "OpenRC service for $key already enabled, skipping.."
