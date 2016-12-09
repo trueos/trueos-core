@@ -9,3 +9,8 @@ multimedia/webcamd
 sysutils/trueos-utils-qt5
 www/firefox
 www/chromium
+graphics/inkscape
+multimedia/obs-studio/
+multimedia/openshot
+audio/virtual_oss
+audio/virtual_oss_ctl

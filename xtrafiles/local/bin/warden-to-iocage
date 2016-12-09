@@ -3,7 +3,7 @@
 # Make sure iocage is init'd
 IOPOOL=`iocage activate | awk '{print $2}'`
 if [ -z "$IOPOOL" ] ; then
-  echo "iocage needs to be activated for a zpool!"
+  echo "iocage needs to be activated for a storage pool!"
   echo "Run iocage activate"
   exit 1
 fi
@@ -27,7 +27,7 @@ if [ ! -d "$IOROOT/log" ] ; then
   mkdir ${IOROOT}/log
 fi
 
-echo "Using zpool: $IOPOOL"
+echo "Using storage pool: $IOPOOL"
 echo "Using iocage location: ${IOROOT}"
 
 # Default NIC

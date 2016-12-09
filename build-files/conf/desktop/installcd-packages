@@ -35,13 +35,12 @@ fribidi-\*.txz
 pc-sysinstall-\*.txz
 life-preserver-\*.txz
 grub2-pcbsd-\*.txz
-stunnel-\*.txz
 webcamd-\*.txz
 trueos-utils-\*.txz
 trueos-utils-qt5-\*.txz
 pc-networkmanager-\*.txz
 qterminal-\*.txz
-noto-\*.txz
+noto-[0-9]\*.txz
 open-vm-tools-\*.txz
 virtualbox-ose-additions-\*.txz
 wpa_supplicant-\*.txz
