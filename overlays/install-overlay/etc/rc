@@ -25,7 +25,10 @@ sh /etc/trueos-rc.sh
 /sbin/openrc default
 
 # Load extra services we need
+/etc/init.d/modules start
 /etc/init.d/devd start
+/etc/init.d/moused start
+/etc/init.d/network start
 /usr/local/etc/init.d/dhcpcd start
 /usr/local/etc/init.d/wpa_supplicant start
 /usr/local/etc/init.d/dbus start
