@@ -1,3 +1,6 @@
+# Warning this file will be overwritten by upgrades
+# Please use /boot/loader.conf to make modifications
+
 # Kernel Options
 kern.ipc.shmseg=1024
 kern.ipc.shmmni=1024
@@ -69,6 +72,3 @@ hw.psm.elantech_support="1"
 
 # Speed up boot time
 autoboot_delay="02"
-
-# Enable the TrueOS splash-screen
-boot_mute="YES"
