@@ -34,6 +34,7 @@ start()
                         echo "wlans_${wnic}=\"${WLAN}\"" >>/etc/rc.conf
                         echo "ifconfig_${WLAN}=\"WPA DHCP\"" >>/etc/rc.conf
                         echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+			service network restart
                 fi
         done
 
