@@ -15,6 +15,7 @@ do
       echo "Deleting OpenRC service for $key to default runlevel..."
       rc-update delete $key default
   fi
+  if [ "$val" = "NO" ] ; then continue; fi
   if [ -e "/etc/init.d/$key" -o -e "/usr/local/etc/init.d/$key" ] ; then
     if [ -e "/etc/runlevels/default/$key" ] ; then
       echo "OpenRC service for $key already enabled, skipping.."
@@ -26,3 +27,8 @@ do
     echo "OpenRC service for $key not found, skipping.."
   fi
 done
+
+# Cleanup the legacy rc.conf.trueos
+if [ -e "/etc/rc.conf.trueos" ] ; then
+  rm /etc/rc.conf.trueos
+fi
