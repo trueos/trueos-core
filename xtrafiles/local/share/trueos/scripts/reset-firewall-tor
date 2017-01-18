@@ -23,11 +23,6 @@ if [ $? -ne 0 ] ; then
   echo "net.inet.ip.random_id=1" >> /etc/sysctl.conf
 fi
 
-# Make sure TOR is enabled
-sysrc -f /etc/rc.conf tor_enable="YES"
-
-# Enable socat for DNS resolving
-sysrc -f /etc/rc.conf socat_enable="YES"
 sysrc -f /etc/rc.conf socat_flags="UDP4-RECVFROM:53,fork UDP4-SENDTO:localhost:9530"
 
 # Make sure we have the default torrc file
@@ -92,7 +87,7 @@ fi
 echo "supersede domain-name-servers 127.0.0.1;" >> /etc/dhclient.conf
 
 # Now lets apply the rules immediately
-service ipfw onerestart
+service ipfw restart
 sh ${rules}
 
 # Now start the TOR Service
