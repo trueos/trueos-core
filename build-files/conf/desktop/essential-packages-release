@@ -7,6 +7,7 @@ multimedia/openh264
 multimedia/vlc
 multimedia/webcamd
 sysutils/trueos-utils-qt5
+sysutils/fusefs-exfat
 www/firefox
 www/chromium
 graphics/inkscape
