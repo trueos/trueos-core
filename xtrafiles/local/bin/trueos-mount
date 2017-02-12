@@ -1,0 +1,32 @@
+#!/bin/sh
+# Script to symlink autofs media in /autofs to /media
+
+# Only run as superuser
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+show_usage()
+{
+  echo "usage: trueos-mount volume"
+}
+
+# Check for arguments
+if [ -z $label ] ; then
+  if [ -z $1 ] ; then
+    show_usage
+    exit 1
+  fi
+fi
+
+if [ ! -z $label ] ; then
+  volume=`cat $label`
+else
+  volume=$1
+fi
+
+ln -s /autofs/"${volume}" /media/"${volume}"
+if [ -d /media/autofs ] ; then
+  rm /media/autofs
+fi
