@@ -1,5 +1,6 @@
 #!/bin/sh
 # Script to symlink autofs media in /autofs to /media
+#Format:  <device node> <filesystem type> <device label>
 
 # Only run as superuser
 if [ "$(id -u)" != "0" ]; then
@@ -13,20 +14,38 @@ show_usage()
 }
 
 # Check for arguments
-if [ -z $label ] ; then
-  if [ -z $1 ] ; then
+if [ -z $1 ] ; then
     show_usage
     exit 1
-  fi
 fi
 
-if [ ! -z $label ] ; then
-  volume=`cat $label`
-else
-  volume=$1
+dev=${1}
+type=`fstyp /dev/${dev}`
+volume=`fstyp -l /dev/${dev} | sed -e 's/[^ ]* //'`
+
+if [ "${volume}m" == "m" ] ; then
+  volume="NO_NAME_${dev}"
 fi
 
-ln -s /autofs/"${volume}" /media/"${volume}"
+#find the associtated autofs dir
+if [ -d /autofs/${volume} ] ; then
+  auto_dir="/autofs/${volume}"
+elif [ -d /autofs/${type} ] ; then
+  auto_dir="/autofs/${type}"
+elif [ -d /autofs/${dev} ] ; then
+  auto_dir="/autofs/${dev}";
+fi
+
+if [ -z ${auto_dir} ] ; then
+  #could not find corresponding autofs dir
+ exit 1;
+fi
+
+#Record the device->label connection for later
+echo ${volume} > /tmp/.${dev}
+#make the symlink
+ln -s "${auto_dir}" /media/"${volume}"
+
 if [ -d /media/autofs ] ; then
   rm /media/autofs
 fi

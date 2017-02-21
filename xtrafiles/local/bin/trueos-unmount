@@ -1,5 +1,6 @@
 #!/bin/sh
 # Script to unlink autofs media in /autofs from /media
+#arguments: <device node>
 
 # Only run as superuser
 if [ "$(id -u)" != "0" ]; then
@@ -13,17 +14,10 @@ show_usage()
 }
 
 # Check for arguments
-if [ -z $label ] ; then
   if [ -z $1 ] ; then
     show_usage
     exit 1
   fi
-fi
-
-if [ ! -z $label ] ; then
-  volume=`cat $label`
-else
-  volume=$1
-fi
-
-rm /media/"${volume}"
+dev=${1}
+label=`cat /tmp/.${dev}`
+rm /media/"${label}"
