@@ -5,7 +5,6 @@ trueos/pcdm
 trueos/pc-diskmanager
 trueos/pc-firewall
 trueos/pc-mixer
-trueos/pc-mounttray
 trueos/pc-networkmanager
 trueos/pc-updatemanager
 trueos/pc-pdfviewer

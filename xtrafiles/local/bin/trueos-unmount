@@ -1,0 +1,29 @@
+#!/bin/sh
+# Script to unlink autofs media in /autofs from /media
+
+# Only run as superuser
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+show_usage()
+{
+  echo "usage: trueos-mount label=name"
+}
+
+# Check for arguments
+if [ -z $label ] ; then
+  if [ -z $1 ] ; then
+    show_usage
+    exit 1
+  fi
+fi
+
+if [ ! -z $label ] ; then
+  volume=`cat $label`
+else
+  volume=$1
+fi
+
+rm /media/"${volume}"
