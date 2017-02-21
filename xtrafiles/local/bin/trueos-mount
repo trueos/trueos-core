@@ -36,8 +36,6 @@ fi
 #find the associtated autofs dir
 if [ -d /autofs/${volume} ] ; then
   auto_dir="/autofs/${volume}"
-elif [ -d /autofs/${type} ] ; then
-  auto_dir="/autofs/${type}"
 elif [ -d /autofs/${dev} ] ; then
   auto_dir="/autofs/${dev}";
 fi
