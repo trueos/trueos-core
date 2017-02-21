@@ -29,6 +29,8 @@ volume=`fstyp -l /dev/${dev} | sed -e 's/[^ ]* //'`
 
 if [ "${volume}m" == "m" ] ; then
   volume="NO_NAME_${dev}"
+else
+  volume="${volume}_${dev}"
 fi
 
 #find the associtated autofs dir
