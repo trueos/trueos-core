@@ -21,6 +21,10 @@ fi
 
 dev=${1}
 type=`fstyp /dev/${dev}`
+if [ ${?} != 0 ]; then
+return 1;
+fi
+
 volume=`fstyp -l /dev/${dev} | sed -e 's/[^ ]* //'`
 
 if [ "${volume}m" == "m" ] ; then

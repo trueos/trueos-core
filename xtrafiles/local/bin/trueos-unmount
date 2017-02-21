@@ -19,5 +19,9 @@ show_usage()
     exit 1
   fi
 dev=${1}
+
+if [ ! -f /tmp/.${dev} ]; then
+  return 1;
+fi
 label=`cat /tmp/.${dev}`
 rm /media/"${label}"
