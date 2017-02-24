@@ -98,6 +98,7 @@ echo "[Desktop Entry]
 Version=1.1
 Type=${xdg_type}
 Name=${volume}
+GenericName=${xdg_comment}
 Comment=${xdg_comment}
 Icon=${xdg_icon}
 ${xdg_actions}
