@@ -10,7 +10,7 @@ fi
 
 show_usage()
 {
-  echo "usage: trueos-mount label=name"
+  echo "usage: trueos-unmount <device>"
 }
 
 # Check for arguments
@@ -20,8 +20,7 @@ show_usage()
   fi
 dev=${1}
 
-if [ ! -f /tmp/.${dev} ]; then
+if [ ! -f /media/${dev}.desktop ]; then
   return 1;
 fi
-label=`cat /tmp/.${dev}`
-rm /media/"${label}"
+rm /media/${dev}.desktop

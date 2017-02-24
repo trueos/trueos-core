@@ -27,10 +27,11 @@ fi
 
 volume=`fstyp -l /dev/${dev} | sed -e 's/[^ ]* //'`
 
-if [ "${volume}m" == "m" ] ; then
-  volume="NO_NAME_${dev}"
+if [ "${volume}" == "${type}" ] ; then
+  #Need to generate a label for this device
+    volume="NO_NAME"
 else
-  volume="${volume}_${dev}"
+  volume="${volume}"
 fi
 
 #find the associtated autofs dir
@@ -45,10 +46,62 @@ if [ -z ${auto_dir} ] ; then
  exit 1;
 fi
 
-#Record the device->label connection for later
-echo ${volume} > /tmp/.${dev}
-#make the symlink
-ln -s "${auto_dir}" /media/"${volume}"
+#Determine the last few info options based on device type
+#xdg_type xdg_icon xdg_actions
+xdg_comment="${dev} - ${type}"
+case ${dev} in 
+	cd* | acd*)
+	  if [ "${type}" == "udf" ]; then
+	    # Video Disk (DVD or Blueray)
+	    xdg_icon="media-optical-video"
+	    xdg_type="Application"
+	    xdg_actions="Exec=xdg-open dvd://1"
+	  elif [ "${type}" == "cd9660" ]; then
+	    # Data Disk 
+	    xdg_icon="media-optical-data"
+	    xdg_type="Dir"
+	    xdg_actions="Path=${auto_dir}"
+	  else
+	    # Blank/Audio Disk?
+	    xdg_icon="media-optical-audio"
+	    xdg_type="Application"
+	    xdg_actions="Exec=xdg-open cdda://1"
+	  fi
+	  #Now add the "eject" action for optical drives
+	  xdg_actions="${xdg_actions}
+Actions=eject;
+[Desktop Action eject]
+Name="Eject Disk"
+Icon=media-eject
+Exec="cdcontrol eject /dev/${dev}"
+"
+	  ;;
+	da* | mmcsd*)
+	  xdg_type="Dir"
+	  xdg_icon="drive-removable-media-usb-pendrive"
+	  xdg_actions="Path=${auto_dir}"
+	  ;;
+	ada*)
+	  xdg_type="Dir"
+	  xdg_icon="drive-harddisk"
+	  xdg_actions="Path=${auto_dir}"
+	  ;;
+	*)
+	  xdg_type="Dir"
+	  xdg_icon="drive-removable-media"
+	  xdg_actions="Path=${auto_dir}"
+	  ;;
+esac
+
+#Generate the XDG desktop file corresponding to this device
+echo "[Desktop Entry]
+Version=1.1
+Type=${xdg_type}
+Name=${volume}
+Comment=${xdg_comment}
+Icon=${xdg_icon}
+${xdg_actions}
+" > /media/${dev}.desktop
 
 if [ -d /media/autofs ] ; then
   rm /media/autofs
