@@ -47,7 +47,7 @@ if [ -z ${auto_dir} ] ; then
 fi
 
 #Determine the last few info options based on device type
-#xdg_type xdg_icon xdg_actions
+#xdg_type xdg_icon xdg_actions xdg_actions_list
 xdg_comment="${dev} - ${type}"
 case ${dev} in 
 	cd* | acd*)
@@ -68,8 +68,9 @@ case ${dev} in
 	    xdg_actions="Exec=xdg-open cdda://1"
 	  fi
 	  #Now add the "eject" action for optical drives
+	  xdg_actions_list="eject;"
 	  xdg_actions="${xdg_actions}
-Actions=eject;
+
 [Desktop Action eject]
 Name="Eject Disk"
 Icon=media-eject
@@ -93,6 +94,17 @@ Exec="cdcontrol eject /dev/${dev}"
 	  ;;
 esac
 
+#Now add additional fsck action for any non-optical device, based on FS
+if [ "${type}" != "udf ] && [ "${type}" != "cd9660" ]; then
+xdg_actions_list="${xdg_actions_list}fsck;"
+xdg_actions="${xdg_actions}
+[Desktop Action fsck]
+Name="Check Filesystem"
+Icon=document-edit-decrypt-verify
+Exec="qsudo fsck -t ${type} ${dev}"
+"
+fi
+
 #Generate the XDG desktop file corresponding to this device
 echo "[Desktop Entry]
 Version=1.1
@@ -101,6 +113,7 @@ Name=${volume}
 GenericName=${xdg_comment}
 Comment=${xdg_comment}
 Icon=${xdg_icon}
+Actions=${xdg_actions_list}
 ${xdg_actions}
 " > /media/${dev}.desktop
 
