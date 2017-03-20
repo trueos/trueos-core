@@ -41,5 +41,4 @@ trueos-utils-qt5-\*.txz
 pc-networkmanager-\*.txz
 qterminal-\*.txz
 noto-[0-9]\*.txz
-open-vm-tools-\*.txz
 virtualbox-ose-additions-\*.txz
