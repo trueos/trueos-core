@@ -95,7 +95,7 @@ Exec="cdcontrol eject /dev/${dev}"
 esac
 
 #Now add additional fsck action for any non-optical device, based on FS
-if [ "${type}" != "udf ] && [ "${type}" != "cd9660" ]; then
+if [ "${type}" != "udf" ] && [ "${type}" != "cd9660" ]; then
 xdg_actions_list="${xdg_actions_list}fsck;"
 xdg_actions="${xdg_actions}
 [Desktop Action fsck]
