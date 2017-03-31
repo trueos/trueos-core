@@ -51,6 +51,4 @@ EndSection
 Section "Device"
         Identifier  "Card0"
         Driver      "modesetting"
-        Option      "AccelMethod"               "none"
-        Option      "SWcursor"                  "true"
 EndSection
