@@ -18,7 +18,7 @@ start()
 
 	# Make sure system dbus service is not in runlevel first
 	if [ -L /etc/runlevels/default/dbus ] ; then
-	  einfo "System dbus detected in runlevel.  Skipping TrueOS init dbus.."
+	  einfo "Skipping machine-id generation while dbus is present in default runlevel"
 	else
 	# QT needs dbus machine-id generated once
 	# This allows us to skip starting dbus system service
