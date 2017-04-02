@@ -16,6 +16,20 @@ start()
                 (/usr/local/share/trueos/scripts/first-boot.sh >/dev/null 2>/dev/null ; rm /var/.trueos-firstboot)&
         fi
 
+	# Make sure system dbus service is not in runlevel first
+	if [ -L /etc/runlevels/default/dbus ] ; then
+	  einfo "System dbus detected in runlevel.  Skipping TrueOS init dbus.."
+	else
+	# QT needs dbus machine-id generated once
+	# This allows us to skip starting dbus system service
+	# Which fixes gvfs crashiness with many GTK applications
+	  if [ ! -e "/var/lib/dbus/machine-id" ] ; then
+	  einfo "TrueOS init creating machine-id for QT applications.."
+          /usr/local/bin/dbus-uuidgen --ensure
+	  fi
+        fi
+
+
         # Check for any new wifi devices to setup
         for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
         do
