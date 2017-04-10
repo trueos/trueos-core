@@ -4,6 +4,8 @@ TrueOS Core contains build config files for both Desktop / Server. It also house
 
 **Table of Contents**
 
+**General Table of Contents**
+
 - [General TrueOS Information](#generalinfo)
 	- [TrueOS Project Documentation](#all-docs)
 		- [TrueOS Handbook](#trueos-docs)
@@ -17,7 +19,7 @@ TrueOS Core contains build config files for both Desktop / Server. It also house
 		- [Subreddit](#trueos-reddit)
 	- [Social Media](#trueos-social)
 
-<!-- END TOC -->
+<!-- END GENERAL INFO TOC -->
 
 # General TrueOS Information
 
@@ -48,24 +50,28 @@ The Application Programming Interface (API) Reference Guide is a comprehensive l
 
 2. **Client Handbook** (https://sysadm.us/handbook/client/)
 
-The SysAdm Client Handbook documents all aspects of the SysAdm client, as well as describing of the PC-BSD system utilities is replaces. Detailed descriptions of utilities such as Appcafe, Life Preserver, and the Boot Environment Manager are contained here, as well as a general guide to using these utilities. TrueOS users are encouraged to reference this guide, as the SysAdm client is included with TrueOS.
+The SysAdm Client handbook documents all aspects of the SysAdm client, as well as describing of the PC-BSD system utilities is replaces. Detailed descriptions of utilities such as Appcafe, Life Preserver, and the Boot Environment Manager are contained here, as well as a general guide to using these utilities. TrueOS users are encouraged to reference this guide, as the SysAdm client is included with TrueOS.
 
 3. **Server Handbook** (https://sysadm.us/handbook/server/introduction.html)
 
-The Server Handbook is a basic installation guide, walking new users through the process of initializing SysAdm with a bridge and server connection.
+The Server handbook is a basic installation guide, walking new users through the process of initializing SysAdm with a bridge and server connection.
 
 ## Filing Issues or Feature Requests
 
 Due to the number of repositories under the TrueOS "umbrella", the TrueOS Project consolidates its issue trackers into a few repositories:
 
-* [trueos-core](https://github.com/trueos/trueos-core) : Used for general TrueOS issues, Pico issues, feature  requests, and TrueOS website issues.
+* [trueos-core](https://github.com/trueos/trueos-core) : Used for general TrueOS issues, Pico issues, and feature  requests.
 * [lumina](https://github.com/trueos/lumina) : Issues related to using the Lumina Desktop Environment.
 * (Coming Soon) [sysadm](https://github.com/trueos/sysadm) : Issues with using the SysAdm client or server.
 * [trueos-docs](https://github.com/trueos/trueos-docs) : Issues related to the TrueOS Handbook.
 * [lumina-docs](https://github.com/trueos/lumina-docs) : Issues related to the Lumina Handbook.
 * [sysadm-docs](https://github.com/trueos/sysadm-docs) : Issues related to the SysAdm API Guide, Client, and Server Handbooks.
+* [trueos-website](https://github.com/trueos/trueos-website) : Issues involving any of the TrueOS Project websites: 
+  - https://www.lumina-desktop.org
+  - https://www.trueos.org
+  - https://www.sysadm.us
 
-The TrueOS Handbook has detailed instructions to help you report a bug (https://www.trueos.org/handbook/helpsupport.html#report-a-bug). It is recommended to refer to these instructions when creating new GitHub issues. Better bug reports usually result in faster fixes!
+The TrueOS handbook has detailed instructions to help you report a bug (https://www.trueos.org/handbook/helpsupport.html#report-a-bug). It is recommended to refer to these instructions when creating new GitHub issues. Better bug reports usually result in faster fixes!
 
 To request a feature, open a new issue in one of the related GitHub issue repositories and begin the title with *Feature Request:*.
 
@@ -75,7 +81,7 @@ The TrueOS community has a wide variety of chat channels and forum options avail
 
 ### Discourse
 
-TrueOS has a [Discourse channel](https://discourse.trueos.org/) managed concurrently with the TrueOS Subreddit. New users need to sign up with Discourse in order to create posts, but it is possible to view posts without an account.
+TrueOS  has a [Discourse channel](https://discourse.trueos.org/) managed concurrently with the TrueOS Subreddit. New users need to sign up with Discourse in order to create posts, but it is possible to view posts without an account.
 
 ### Gitter
 
