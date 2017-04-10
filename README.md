@@ -2,10 +2,6 @@
 
 TrueOS Core contains build config files for both Desktop / Server. It also houses the central issue tracker for the TrueOS Project.
 
-**Table of Contents**
-
-**General Table of Contents**
-
 - [General TrueOS Information](#generalinfo)
 	- [TrueOS Project Documentation](#all-docs)
 		- [TrueOS Handbook](#trueos-docs)
