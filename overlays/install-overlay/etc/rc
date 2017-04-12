@@ -26,7 +26,6 @@ sh /etc/trueos-rc.sh
 
 # Load extra services we need
 /etc/init.d/modules start
-/etc/init.d/devd start
 /etc/init.d/moused start
 
 # Fix for QT to allow startup without DBUS
