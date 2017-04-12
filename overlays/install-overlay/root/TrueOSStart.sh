@@ -5,11 +5,11 @@
 ###########################################################################
 MM_CHARSET="UTF-8" ; export MM_CHARSET
 LANG="en_US.UTF-8" ; export LANG
-LC_CTYPE="en_US.UTF-8" ; export LC_CTYPE     
+LC_CTYPE="en_US.UTF-8" ; export LC_CTYPE
 LC_COLLATE="POSIX" ; export LC_COLLATE
 
 # Make sure this is only executed on the first login, in order for other ctrl-fX screens to work
-if [ -f "/tmp/1stRun" ] 
+if [ -f "/tmp/1stRun" ]
 then
   exit
 fi
@@ -66,11 +66,11 @@ fi
 # Source our functions
 . /root/functions.sh
 
-# Set all NICS to DHCP mode
+# Set all NICS to DHCP mode (This enables networking for post install)
 enable_dhcp_all
 
-# Enable networking
-/etc/rc.d/netif restart
+# Enable dhcp for install
+dhcpcd
 
 # Check if we have an auto-install directive
 if [ -e "/pc-autoinstall.conf" ]
@@ -87,8 +87,9 @@ ln -s /memfs/.fluxbox /root/.fluxbox
 mkdir /tmp/.qt
 mkdir /tmp/xkb
 
-# Run the text menu
-/root/TrueOSText.sh
+# Run the installer
+echo "Starting graphical Installer (AutoDetect).. Please wait.."
+start_xorg
 
 # Check if we had a successful SysInstaller exit
 if [ -e "/root/.exitStatus" ] ; then
