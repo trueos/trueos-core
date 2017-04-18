@@ -1,7 +1,7 @@
 emulators/virtualbox-ose-additions
 graphics/phototonic
 graphics/xv
-mail/thunderbird
+mail/trojita
 misc/trueos-desktop
 misc/trueos-meta-hunspell
 misc/trueos-server
@@ -11,15 +11,14 @@ multimedia/webcamd
 ports-mgmt/pkg
 print/cups-pdf
 print/gutenprint-cups
+print/qpdfview
 security/openvpn
 sysutils/diskscrub
 sysutils/life-preserver
 sysutils/pc-sysinstall
-sysutils/grub2-pcbsd
-sysutils/grub2-efi
 sysutils/trueos-utils
 sysutils/trueos-utils-qt5
-www/firefox
+www/qupzilla-qt5
 x11/lumina
 x11/nvidia-driver
 x11/qterminal
