@@ -56,7 +56,7 @@ echo "$card1" | grep -q -i -e "intel"
 if [ $? -eq 0 ] ; then
    echo "$card1" | grep -q -i -e "intel"
    if [ $? -eq 0 ] ; then
-      echo "Detected Intel! Using intel video..."
+      echo "Detected Intel! Using intel modesetting..."
       sleep 1
    fi
    kldload i915kms
@@ -68,7 +68,7 @@ echo "$card1" | grep -q -i -e "intel"
 if [ $? -eq 0 ] ; then
    echo "$card2" | grep -q -i -e "nvidia"
    if [ $? -eq 0 ] ; then
-      echo "Detected Optimus! Using intel video..."
+      echo "Detected Optimus! Using intel modesetting..."
       sleep 1
    fi
    kldload i915kms
@@ -80,7 +80,7 @@ echo "$card1" | grep -q -i -e "nvidia"
 if [ $? -eq 0 ] ; then
    echo "$card2" | grep -q -i -e "intel"
    if [ $? -eq 0 ] ; then
-      echo "Detected Optimus! Using intel video..."
+      echo "Detected Optimus! Using intel modesetting..."
       sleep 1
       kldload i915kms
       cp /root/cardDetect/XF86Config.modesetting /etc/X11/xorg.conf
@@ -92,3 +92,25 @@ if [ $? -eq 0 ] ; then
       sleep 1
    fi
 fi
+
+ # Check for nvidia as first card
+ 55 echo "$card1" | grep -q -i -e "nvidia"
+ 56 if [ $? -eq 0 ] ; then
+ 57    echo "$card1" | grep -q -i -e "intel"
+ 58    if [ $? -eq 0 ] ; then
+ 59       echo "Detected NVIDIA! Using vesa..."
+ 60       sleep 1
+ 61    fi
+ 63    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+ 64 fi
+
+ # Check for ATI as first card
+ 55 echo "$card1" | grep -q -i -e "amd"
+ 56 if [ $? -eq 0 ] ; then
+ 57    echo "$card1" | grep -q -i -e "amd"
+ 58    if [ $? -eq 0 ] ; then
+ 59       echo "Detected AMD! Using vesa..."
+ 60       sleep 1
+ 61    fi
+ 63    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+ 64 fi
