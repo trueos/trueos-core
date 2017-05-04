@@ -94,23 +94,23 @@ if [ $? -eq 0 ] ; then
 fi
 
  # Check for nvidia as first card
- 55 echo "$card1" | grep -q -i -e "nvidia"
- 56 if [ $? -eq 0 ] ; then
- 57    echo "$card1" | grep -q -i -e "intel"
- 58    if [ $? -eq 0 ] ; then
- 59       echo "Detected NVIDIA! Using vesa..."
- 60       sleep 1
- 61    fi
- 63    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
- 64 fi
+ echo "$card1" | grep -q -i -e "nvidia"
+ if [ $? -eq 0 ] ; then
+    echo "$card1" | grep -q -i -e "intel"
+    if [ $? -eq 0 ] ; then
+        echo "Detected NVIDIA! Using vesa..."
+        sleep 1
+     fi
+     cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+ fi
 
  # Check for ATI as first card
- 55 echo "$card1" | grep -q -i -e "amd"
- 56 if [ $? -eq 0 ] ; then
- 57    echo "$card1" | grep -q -i -e "amd"
- 58    if [ $? -eq 0 ] ; then
- 59       echo "Detected AMD! Using vesa..."
- 60       sleep 1
- 61    fi
- 63    cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
- 64 fi
+ echo "$card1" | grep -q -i -e "amd"
+ if [ $? -eq 0 ] ; then
+    echo "$card1" | grep -q -i -e "amd"
+    if [ $? -eq 0 ] ; then
+        echo "Detected AMD! Using vesa..."
+        sleep 1
+     fi
+     cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+ fi
