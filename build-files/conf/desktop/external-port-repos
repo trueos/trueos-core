@@ -14,10 +14,10 @@ trueos/personacrypt
 trueos/qsudo
 trueos/sysadm
 trueos/sysadm-ui-qt
-trueos/trueos-desktop
+trueos/trueos-desktop stable
 trueos/trueos-docs
 trueos/trueos-libsh
 trueos/trueos-libqt5
 trueos/trueos-utils
 trueos/trueos-utils-qt5
-trueos/trueos-server
+trueos/trueos-server stable
