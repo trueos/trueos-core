@@ -10,6 +10,7 @@ misc/trueos-server
 misc/trueos-toolchain
 multimedia/openh264
 multimedia/webcamd
+multimedia/vlc
 net/dhcpcd
 print/qpdfview
 print/gutenprint-cups
