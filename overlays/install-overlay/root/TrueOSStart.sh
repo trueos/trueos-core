@@ -58,11 +58,6 @@ if [ -e "/trueos-media-network" ] ; then
   sed -i '' "s|ARCH|${ARCH}|g" /root/pkg/repos/trueos.conf
 fi
 
-# Check if we are running in a VM and enable guest services
-if [ -e "/usr/local/etc/rc.d/vboxguest" ] ; then
-  /usr/local/etc/rc.d/vboxguest onestart
-fi
-
 # Source our functions
 . /root/functions.sh
 
