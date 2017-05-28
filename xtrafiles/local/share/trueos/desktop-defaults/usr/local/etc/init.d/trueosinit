@@ -29,6 +29,15 @@ start()
 	  fi
         fi
 
+	# Check for extra kernel modules to load for video
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "modesetting"
+	if [ $? -eq 0 ] ; then
+	  kldload i915kms
+	fi
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"  
+        if [ $? -eq 0 ] ; then
+          kldload vboxguest
+        fi
 
         # Check for any new wifi devices to setup
         for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
