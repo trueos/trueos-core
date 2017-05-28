@@ -21,6 +21,8 @@ sysutils/trueos-utils-qt5
 www/qupzilla-qt5
 x11/lumina
 x11/nvidia-driver
+x11/nvidia-driver-304
+x11/nvidia-driver-340
 x11/qterminal
 x11-drivers/xf86-video-scfb
 x11-fonts/noto
