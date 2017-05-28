@@ -22,6 +22,8 @@ sysutils/trueos-utils-qt5
 www/qupzilla-qt5
 www/firefox
 x11/nvidia-driver
+x11/nvidia-driver-304
+x11/nvidia-driver-340
 x11/qterminal
 x11-fonts/noto
 x11-fonts/noto-lite
