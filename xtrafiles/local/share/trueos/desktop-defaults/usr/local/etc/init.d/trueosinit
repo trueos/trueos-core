@@ -52,7 +52,7 @@ start()
         fi
 	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "nvidia"
 	if [ $? -eq 0 ] ; then
-	  if [ -f "/boot/modules/nvidia-modeset" ] ; then
+	  if [ -f "/boot/modules/nvidia-modeset.ko" ] ; then
 	    kldstat | grep -q "nvidia-modeset"
 	    if [ $? -ne 0 ] ; then
 	      kldload nvidia-modeset
