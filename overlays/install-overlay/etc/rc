@@ -13,6 +13,10 @@
 # This gives us a nice colour boot :)
 [ -z "$TERM" -o "$TERM" = "dumb" ] && TERM="cons25" && export TERM
 
+# Set PATH for our scripts
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
+export PATH
+
 # Handle interrupts
 trap : SIGINT
 trap "echo 'Boot interrupted'; exit 1" SIGQUIT
