@@ -38,18 +38,30 @@ start()
 	# Check for extra kernel modules to load for video
 	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "modesetting"
 	if [ $? -eq 0 ] ; then
-	  kldload i915kms
+	  kldstat | grep -q "i915kms"
+	    if [ $? -ne 0 ] ; then
+	      kldload i915kms
+	  fi
 	fi
 	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"  
         if [ $? -eq 0 ] ; then
-          kldload vboxguest
+	  kldstat | grep -q "vboxguest"
+	    if [ $? -ne 0 ] ; then
+              kldload vboxguest
+	  fi
         fi
 	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "nvidia"
 	if [ $? -eq 0 ] ; then
 	  if [ -f "/boot/modules/nvidia-modeset" ] ; then
-	    kldload nvidia-modeset
+	    kldstat | grep -q "nvidia-modeset"
+	    if [ $? -ne 0 ] ; then
+	      kldload nvidia-modeset
           else
+            kldstat | grep -q "nvidia"
+            if [ $? -ne 0 ] ; then
 	    kldload nvidia
+	      fi
+	    fi
 	  fi
         fi
 
