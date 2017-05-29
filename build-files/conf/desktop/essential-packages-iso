@@ -1,5 +1,6 @@
 devel/qt5
 devel/llvm40
+emulators/virtualbox-ose
 emulators/virtualbox-ose-additions
 graphics/phototonic
 graphics/xv
