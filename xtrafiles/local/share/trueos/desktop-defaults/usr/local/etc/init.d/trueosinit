@@ -9,6 +9,12 @@
 # This file may not be copied, modified, propagated, or distributed
 # except according to the terms contained in the LICENSE file.
 
+depend()
+{
+	before pcdm
+	after modules
+}
+
 start()
 {
         echo "Starting TrueOS init.."
@@ -29,6 +35,35 @@ start()
 	  fi
         fi
 
+	# Check for extra kernel modules to load for video
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "modesetting"
+	if [ $? -eq 0 ] ; then
+	  kldstat | grep -q "i915kms"
+	    if [ $? -ne 0 ] ; then
+	      kldload i915kms
+	  fi
+	fi
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"  
+        if [ $? -eq 0 ] ; then
+	  kldstat | grep -q "vboxguest"
+	    if [ $? -ne 0 ] ; then
+              kldload vboxguest
+	  fi
+        fi
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "nvidia"
+	if [ $? -eq 0 ] ; then
+	  if [ -f "/boot/modules/nvidia-modeset.ko" ] ; then
+	    kldstat | grep -q "nvidia-modeset"
+	    if [ $? -ne 0 ] ; then
+	      kldload nvidia-modeset
+          else
+            kldstat | grep -q "nvidia"
+            if [ $? -ne 0 ] ; then
+	    kldload nvidia
+	      fi
+	    fi
+	  fi
+        fi
 
         # Check for any new wifi devices to setup
         for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
