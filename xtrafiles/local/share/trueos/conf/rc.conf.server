@@ -1,0 +1,44 @@
+# TrueOS rc.conf file
+#
+# WARNING - WARNING - WARNING - WARNING - WARNING - WARNING
+#
+# This file *will* be overwritten during upgrades
+# Place your local changes & overrides into /etc/rc.conf
+#
+# WARNING - WARNING - WARNING - WARNING - WARNING - WARNING
+###########################################################
+
+# Enable ZFS
+zfs_enable="YES"
+
+# FSCK Enhancements
+fsck_y_enable="YES"
+
+# Enable iocage
+iocage_enable="YES"
+
+# Load the following kernel modules
+kld_list="libiconv libmchain msdosfs_iconv sem fdescfs linsysfs fuse"
+
+# Enable openntpd
+openntpd_enable="YES"
+openntpd_flags="-s"
+
+# Enable IPFW for Warden
+firewall_enable="YES"
+firewall_type="open"
+
+# Build linker.hints files with kldxref(8)
+# Overwrite old linker.hints at boot
+kldxref_enable="YES"
+kldxref_clobber="YES"
+
+# Clean out temporary files.
+clear_tmp_enable="YES"
+clean_tmp_X="YES"
+
+# Support for iSCSI with Life-Preserver
+iscsid_enable="YES"
+
+# Enable the sysadm daemon
+sysadm_enable="YES"
