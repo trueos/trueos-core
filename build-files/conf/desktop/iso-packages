@@ -6,6 +6,7 @@ misc/trueos-desktop
 misc/trueos-meta-hunspell
 misc/trueos-server
 multimedia/openh264
+multimedia/libdvdcss
 multimedia/vlc
 multimedia/webcamd
 ports-mgmt/pkg
