@@ -70,12 +70,6 @@ if [ $? -ne 0 ] ; then
   echo "vfs.zfs.arc_max=\"${zArc}M\"" >> /boot/loader.conf
 fi
 
-# Set the default pkg branch
-if [ -e "/root/defaultpkgbranch" ] ; then
-  DPB=`cat /root/defaultpkgbranch`
-  sed -i '' "/PACKAGE_SET:/s/.*/PACKAGE_SET: $DPB/" /usr/local/etc/trueos.conf
-fi
-
 ################################################
 # Do desktop specific init
 ################################################
@@ -106,6 +100,12 @@ if [ "$1" = "server" ] ; then
   # Copy the default server files over
   echo "Copying defaults to base system"
   tar cvf - -C /usr/local/share/trueos/server-defaults . 2>/dev/null | tar xvf - -C / 2>/dev/null
+fi
+
+# Set the default pkg branch
+if [ -e "/root/defaultpkgbranch" ] ; then
+  DPB=`cat /root/defaultpkgbranch`
+  sed -i '' "/PACKAGE_SET:/s/.*/PACKAGE_SET: $DPB/" /usr/local/etc/trueos.conf
 fi
 
 # Boot-strap the PKG config
