@@ -345,10 +345,62 @@ restamp_grub_install()
   return 0
 }
 
+setup_efi_boot()
+{
+  #This is not ready yet - just skip it for now
+  if true then
+    echo "rEFInd Restamp not implemented yet!"
+    return 1
+  fi
+
+  # Read through our disk list and setup EFI loader on each
+  for disk in $EFI_POST_SETUP
+  do
+    # Make sure we have a /dev in front of the disk name
+    echo $disk | grep -q '/dev/'
+    if [ $? -eq 0 ] ; then
+      gDisk="$disk"
+    else
+      gDisk="/dev/$disk"
+    fi
+
+    # Installing to the EFI partition on disk
+    efip=`gpart show $gDisk | grep ' efi ' | awk '{print $3}'`
+    EFIPART="${gDisk}p${efip}"
+
+    # Mount the partition
+    rc_nohalt "mkdir ${FSMNT}/boot/efi"
+    rc_halt "mount -t msdosfs ${EFIPART} ${FSMNT}/boot/efi"
+
+    # Copy the .efi file
+    rc_nohalt "mkdir -p ${FSMNT}/boot/efi/efi/boot"
+
+    # Check if efiLoader is specified
+    get_value_from_cfg efiLoader
+    EFILOADER="${VAL}"
+    if [ -z "$EFILOADER" ] ; then EFILOADER="refind" ; fi
+
+    if [ -d '/root/refind' -a "$EFILOADER" = "refind" ] ; then
+      # We have refind on the install media, lets use that for dual-boot purposes
+      rc_halt "cp /root/refind/refind_x64.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
+      rc_halt "cp /root/refind/refind.conf ${FSMNT}/boot/efi/efi/boot/refind.conf"
+      rc_halt "cp -r /root/refind/icons ${FSMNT}/boot/efi/efi/boot/icons"
+      rc_halt "cp ${FSMNT}/boot/boot1.efi ${FSMNT}/boot/efi/efi/boot/bootx64-trueos.efi"
+    else
+      # BSD Loader only
+      rc_halt "cp ${FSMNT}/boot/boot1.efi ${FSMNT}/boot/efi/efi/boot/BOOTx64.efi"
+    fi
+
+    # Cleanup
+    rc_halt "umount ${FSMNT}/boot/efi"
+  done
+}
+
+
 restamp_refind_install()
 {
   clear
-  cp /mnt/root/refind/refind_x64.efi /mnt/boot/bootx64.efi
+  setup_efi_boot
   if [ $? -ne 0 ] ; then
     echo "Failed rEFInd restamp"
   else
