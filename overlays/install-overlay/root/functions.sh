@@ -344,3 +344,14 @@ restamp_grub_install()
 
   return 0
 }
+
+restamp_refind_install()
+{
+  clear
+  cp /mnt/root/refind/refind_x64.efi /mnt/boot/bootx64.efi
+  if [ $? -ne 0 ] ; then
+    echo "Failed rEFInd restamp"
+  else
+    echo "[SUCCESS] rEFInd restamped"
+  fi
+}
