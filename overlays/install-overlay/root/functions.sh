@@ -348,7 +348,7 @@ restamp_grub_install()
 setup_efi_boot()
 {
   #This is not ready yet - just skip it for now
-  if true then
+  if true ; then
     echo "rEFInd Restamp not implemented yet!"
     return 1
   fi
