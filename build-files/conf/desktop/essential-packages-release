@@ -1,4 +1,6 @@
 editors/libreoffice
+emulators/i386-wine
+emulators/virtualbox-ose
 mail/thunderbird
 misc/trueos-desktop
 misc/trueos-server
