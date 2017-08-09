@@ -12,7 +12,8 @@ multimedia/vlc
 multimedia/webcamd
 ports-mgmt/pkg
 print/cups-pdf
-print/gutenprint-cups
+print/cups-filters
+print/gutenprint
 print/qpdfview
 security/openvpn
 sysutils/diskscrub
