@@ -13,7 +13,6 @@ multimedia/openh264
 multimedia/webcamd
 multimedia/vlc
 net/dhcpcd
-print/qpdfview
 print/gutenprint-cups
 sysutils/sysadm
 sysutils/sysadm-client

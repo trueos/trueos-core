@@ -14,7 +14,6 @@ ports-mgmt/pkg
 print/cups-pdf
 print/cups-filters
 print/gutenprint
-print/qpdfview
 security/openvpn
 sysutils/diskscrub
 sysutils/life-preserver
