@@ -1,3 +1,4 @@
+audio/pianobar
 emulators/open-vm-tools
 emulators/virtualbox-ose-additions
 graphics/phototonic
@@ -16,6 +17,7 @@ print/cups-filters
 print/gutenprint
 security/openvpn
 sysutils/diskscrub
+sysutils/fusefs-ntfs
 sysutils/life-preserver
 sysutils/pc-sysinstall
 sysutils/trueos-utils
@@ -31,5 +33,4 @@ x11-fonts/noto
 x11-fonts/noto-lite
 x11-fonts/droid-fonts-ttf
 x11-themes/cursor-jimmac-theme
-sysutils/fusefs-ntfs
 x11/xterm
