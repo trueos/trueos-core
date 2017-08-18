@@ -1,6 +1,7 @@
 #!/bin/sh
 # PC-BSD Install CD Utility Menu
-# Copyright 2006 PC-BSD Software
+# Copyright 2017 iXsystems
+# License: 2 Clause BSD
 # http://www.trueos.com
 # Author: Kris Moore
 ############################################################################
@@ -27,7 +28,6 @@ case $ANS in
 
               /bin/csh ;;
      zimport) zpool_import ;;
-     fixgrub) restamp_grub_install ;;
      fixrefind) restamp_refind_install ;;
         exit) break ; exit 0 ;;
           *) ;;

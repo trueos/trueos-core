@@ -1,5 +1,6 @@
 #!/bin/sh
-# Copyright 2014 PC-BSD Software
+# Copyright 2017 iXsystems (Kris Moore)
+# License: 2 Clause BSD
 # http://www.trueos.org
 # Author: Kris Moore
 ###########################################################################
@@ -66,6 +67,22 @@ enable_dhcp_all
 
 # Enable dhcp for install
 dhcpcd
+
+# Doing Server Install?
+if [ -e "/trueos-server" ] ; then
+  /root/TrueOSText.sh
+  if [ "$?" = "0" ] ; then
+    reboot -q
+  else
+    echo "Installation failed! Press any key to drop to shell or type 'reboot' to restart the system"
+    read tmp
+    if [ "$tmp" = "reboot" ] ; then
+      reboot -q
+    else
+      /bin/sh
+    fi
+  fi
+fi
 
 # Check if we have an auto-install directive
 if [ -e "/pc-autoinstall.conf" ]
