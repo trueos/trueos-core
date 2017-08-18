@@ -1,2 +1,4 @@
+editors/vim
 misc/trueos-server	
 misc/trueos-utils
+sysutils/bsdstats
