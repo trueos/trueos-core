@@ -172,6 +172,11 @@ start_xorg()
   # Allow time for trueos-video.sh to load modules if needed
   sleep 5
 
+  # Fix for QT to allow startup without DBUS
+  if [ ! -e "/var/lib/dbus/machine-id" ] ; then
+    /usr/local/bin/dbus-uuidgen --ensure
+  fi
+
   ATTEMPT=0
 
   # Run X Now

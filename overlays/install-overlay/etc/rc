@@ -32,11 +32,6 @@ sh /etc/trueos-rc.sh
 /etc/init.d/modules start
 /etc/init.d/moused start
 
-# Fix for QT to allow startup without DBUS
-if [ ! -e "/var/lib/dbus/machine-id" ] ; then
-/usr/local/bin/dbus-uuidgen --ensure
-fi
-
 # We don't actually care if rc default worked or not, we should exit 0
 # to allow logins
 
