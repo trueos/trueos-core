@@ -40,10 +40,10 @@ start()
 	if [ $? -eq 0 ] ; then
 	  kldstat | grep -q "i915kms"
 	    if [ $? -ne 0 ] ; then
-	      kldload i915kms
+	      kldload /boot/modules/i915kms.ko
 	  fi
 	fi
-	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"  
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"
         if [ $? -eq 0 ] ; then
 	  kldstat | grep -q "vboxguest"
 	    if [ $? -ne 0 ] ; then
