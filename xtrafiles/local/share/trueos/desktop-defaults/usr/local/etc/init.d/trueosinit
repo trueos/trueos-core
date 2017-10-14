@@ -36,7 +36,7 @@ start()
         fi
 
 	# Check for extra kernel modules to load for video
-	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "modesetting"
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q -e "modesetting" -e "intel"
 	if [ $? -eq 0 ] ; then
 	  kldstat | grep -q "i915kms"
 	    if [ $? -ne 0 ] ; then
