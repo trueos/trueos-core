@@ -34,11 +34,12 @@ else
   volume="${volume}"
 fi
 
+automntdir=`grep -E -e "^/.*(-automount)" /etc/auto_master | cut -w -f 1`
 #find the associtated autofs dir
-if [ -d /autofs/${volume} ] ; then
-  auto_dir="/autofs/${volume}"
-elif [ -d /autofs/${dev} ] ; then
-  auto_dir="/autofs/${dev}";
+if [ -d ${automntdir}/${volume} ] ; then
+  auto_dir="${automntdir}/${volume}"
+elif [ -d ${automntdir}/${dev} ] ; then
+  auto_dir="${automntdir}/${dev}";
 fi
 
 if [ -z ${auto_dir} ] ; then
