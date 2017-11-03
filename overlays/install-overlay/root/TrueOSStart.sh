@@ -18,13 +18,16 @@ fi
 touch /tmp/1stRun
 
 # Make /var/tmp link
+mkdir -p /var/tmp
 mv /var/tmp /tmp/vartmp
 ln -s /tmp/vartmp /var/tmp
 
+sleep 1
+
 # Check ZFS tmpdir
 if [ ! -d "/tmp/zfs" ] ; then
-  mkdir /tmp/zfs
-  if [ $? -ne 0 ] ; then
+  mkdir -p /tmp/zfs
+  if [ ! -d "/tmp/zfs" ] ; then
      echo "Error creating /tmp/zfs, ZFS installs will not work!"
      echo "Press ENTER to continue"
      read tmp
