@@ -21,10 +21,10 @@ if [ -e "/dist/no-install-pkgs" ] ; then touch /tmp/no-install-pkgs ; fi
 if [ -e "/dist/no-fbsd-release" ] ; then touch /tmp/no-fbsd-release ; fi
 
 # Check if we have a pc-autoinstall.conf file
-if [ -e "/boot/pc-autoinstall.conf" ]
+if [ -e "/boot/pc-autoinstall.conf" -o -e "/pc-autoinstall.conf" ]
 then
   # We have one, copy it over so that pc-sysinstall can parse it later during the bootup
-  cp /boot/pc-autoinstall.conf /tmp/pc-autoinstall.conf
+  cp /boot/pc-autoinstall.conf /tmp/pc-autoinstall.conf > /dev/null 2>/dev/null || cp /pc-autoinstall.conf /tmp/pc-autoinstall.conf
   
   # Check if the config file is on disk as well
   PCCFG=`grep "pc_config:" /tmp/pc-autoinstall.conf | grep -v "^#" | /bin/cut -d ':' -f 2 | tr -d ' '`
@@ -35,7 +35,9 @@ then
   then
     if [ -e "/${PCCFG}" ]
     then
-      cp /${PCCFG} /tmp/pc-sysinstall.cfg
+      cp /${PCCFG} /tmp/pc-sysinstall.conf
+	  # adjust path to pc-sysinstall.conf to where we just copied it, so pc-sysinstall can parse it later
+	  sed -i '' "s|${PCCFG}|/tmp/pc-sysinstall.conf|" /tmp/pc-autoinstall.conf
     else
       echo "ERROR: pc_config: ${PCCFG} isn't on the boot media! Automated install aborted!"
       rm /tmp/pc-autoinstall.conf

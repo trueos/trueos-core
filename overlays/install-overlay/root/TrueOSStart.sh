@@ -88,10 +88,10 @@ if [ -e "/trueos-server" ] ; then
 fi
 
 # Check if we have an auto-install directive
-if [ -e "/pc-autoinstall.conf" ]
+if [ -e "/tmp/pc-autoinstall.conf" ]
 then
   # Start the parser on this directive and begin the install
-  /root/pc-sysinstall/pc-sysinstall start-autoinstall /pc-autoinstall.conf
+  /root/pc-sysinstall/pc-sysinstall start-autoinstall /tmp/pc-autoinstall.conf
 fi
 
 # Run the intial sorting of directories
