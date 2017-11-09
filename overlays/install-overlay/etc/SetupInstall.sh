@@ -35,9 +35,9 @@ then
   then
     if [ -e "/${PCCFG}" ]
     then
-      cp /${PCCFG} /tmp/pc-sysinstall.conf
-	  # adjust path to pc-sysinstall.conf to where we just copied it, so pc-sysinstall can parse it later
-	  sed -i '' "s|${PCCFG}|/tmp/pc-sysinstall.conf|" /tmp/pc-autoinstall.conf
+      cp /${PCCFG} /tmp/pc-sysinstall.cfg
+	  # adjust path to pc-sysinstall.cfg to where we just copied it, so pc-sysinstall can parse it later
+	  sed -i '' "s|${PCCFG}|/tmp/pc-sysinstall.cfg|" /tmp/pc-autoinstall.conf
     else
       echo "ERROR: pc_config: ${PCCFG} isn't on the boot media! Automated install aborted!"
       rm /tmp/pc-autoinstall.conf
