@@ -27,15 +27,8 @@ fi
 
 if [ "${type}" == "msdosfs" ] ; then
   #Verify that this is not an EFI boot partition
-  chk=`gpart show -p |grep ${dev} | grep efi`
-  # A bit inefficient, but quickly mount the device and look for any .efi files in it
-  #mntdir="/.msdosfs_efi_check_${dev}"
-  #mkdir ${mntdir}
-  #mount -t msdosfs /dev/${dev} ${mntdir}
-  #chk=`find ${mntdir} | grep -E ".*(.efi)"`
-  #umount ${mntdir}
-  #rmdir ${mntdir}
-  if [ ! -z "$chk" ] ; then
+  chk=`gpart show -p |grep ${dev} | cut -w -f 5`
+  if [ "$chk" == "efi" ] ; then
     exit 1
   fi
 fi
