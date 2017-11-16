@@ -1,6 +1,6 @@
 #!/bin/sh
 # Script to symlink autofs media in /autofs to /media
-#Format:  <device node> <filesystem type> <device label>
+#Format:  <device node> (do not prepend with "/dev/" !!)
 
 # Only run as superuser
 if [ "$(id -u)" != "0" ]; then
@@ -10,7 +10,7 @@ fi
 
 show_usage()
 {
-  echo "usage: trueos-mount volume"
+  echo "usage: trueos-mount (volume)"
 }
 
 # Check for arguments
@@ -23,6 +23,20 @@ dev=${1}
 type=`fstyp /dev/${dev}`
 if [ ${?} != 0 ]; then
 return 1;
+fi
+
+if [ "${type}" == "msdosfs" ] ; then
+  #Verify that this is not an EFI boot partition
+  # A bit inefficient, but quickly mount the device and look for any .efi files in it
+  mntdir="/.msdosfs_efi_check_${dev}"
+  mkdir ${mntdir}
+  mount -t msdosfs /dev/${dev} ${mntdir}
+  chk=`ls ${mntdir} | grep efi`
+  umount ${mntdir}
+  rmdir ${mntdir}
+  if [ ! -z "$chk" ] ; then
+    exit 1
+  fi
 fi
 
 volume=`fstyp -l /dev/${dev} | sed -e 's/[^ ]* //'`
