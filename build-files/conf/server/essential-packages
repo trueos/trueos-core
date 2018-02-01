@@ -2,4 +2,4 @@ editors/vim
 misc/trueos-server	
 misc/trueos-utils
 sysutils/bsdstats
-sysutils/ixautomation
+sysutils/py36-ixautomation
