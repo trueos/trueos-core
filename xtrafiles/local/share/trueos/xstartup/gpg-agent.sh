@@ -5,7 +5,7 @@
 # If .ssh folder also exists in the user's home, enable ssh-agent fuctionality.
 
 UID=$(id -u)
-if [ $UID -gt 1000 ]; then
+if [ $UID -ge 1000 ]; then
   # GPG-Agent
   if [ -d "${HOME}/.gnupg" ]; then 
     GPG_AGENT="/usr/local/bin/gpg-agent"
