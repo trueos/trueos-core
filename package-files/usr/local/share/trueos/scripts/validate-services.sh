@@ -10,8 +10,8 @@
 
 #================
 # NOTE about file format:
-# There needs to be two or three words per line, 
-#  corresponding to the arguments to the rc-update utility
+# There needs to be two or three words per line delimited by colons, 
+# These words correspond to the CLI arguments to the rc-update utility
 #====EXAMPLE====
 # add:pcdm:default
 # delete:dbus
