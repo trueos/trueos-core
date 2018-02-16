@@ -17,9 +17,13 @@ RUN_DEPENDS=	${LOCALBASE}/bin/pc-updatemanager:sysutils/pc-updatemanager \
 		${LOCALBASE}/sbin/beadm:sysutils/beadm \
 		${LOCALBASE}/bin/rsync:net/rsync \
 		${LOCALBASE}/bin/zfs-stats:sysutils/zfs-stats \
+		${LOCALBASE}/sbin/anacron:sysutils/anacron \
 		bsdstats>=0:sysutils/bsdstats \
 		ataidle>=0:sysutils/ataidle \
 		openntpd>=0:net/openntpd \
+		pciutils>=0:sysutils/pciutils \
+		pam_mkhomedir>=0:security/pam_mkhomedir \
+		tor>=0:security/tor \
 		bhyve-firmware>=0:sysutils/bhyve-firmware \
 		dhcpcd>=0:net/dhcpcd
 
