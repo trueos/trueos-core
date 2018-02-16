@@ -3,4 +3,12 @@
 #==============================
 #  Line Format: <add/delete>:<servicename>:[runlevel]
 #==============================
+#Bootup services
 add:zfs:boot
+add:ipfw:boot
+add:devd:boot
+add:devfs:boot
+add:routing:boot
+
+#Ensure the hald service is never enabled at boot (major security vulnerability)
+delete:hald:default
