@@ -23,7 +23,7 @@ MAKE_ARGS=	STAGEDIR=${STAGEDIR}  TYPE=server
 
 USE_GITHUB=     yes
 GH_ACCOUNT=     trueos
-GH_PROJECT=     trueos-server
+GH_PROJECT=     trueos-core
 GH_TAGNAME=     %%GHTAG%%
 
 .include <bsd.port.mk>

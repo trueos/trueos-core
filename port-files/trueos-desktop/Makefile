@@ -48,7 +48,7 @@ MAKE_ARGS=	STAGEDIR=${STAGEDIR}  TYPE=desktop
 
 USE_GITHUB=     yes
 GH_ACCOUNT=     trueos
-GH_PROJECT=     trueos-desktop
+GH_PROJECT=     trueos-core
 GH_TAGNAME=     %%GHTAG%%
 
 post-install:
