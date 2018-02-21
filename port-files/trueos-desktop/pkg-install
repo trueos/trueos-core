@@ -1,0 +1,25 @@
+#!/bin/sh
+# Script to install preload.conf
+
+PREFIX=${PKG_PREFIX-/usr/local}
+
+if [ "$2" != "POST-INSTALL" ] ; then
+   exit 0
+fi
+
+set +e
+
+# If this is during staging, we can skip for now
+echo $PREFIX | grep -q '/stage/'
+if [ $? -eq 0 ] ; then
+   exit 0
+fi
+
+#Overwrite the Linux printer test page with one
+#  from the original CUPS 1.3 release from Apple (generic test images)
+cp ${PREFIX}/share/cups/data/default-testpage.orig.pdf ${PREFIX}/share/cups/data/default-testpage.pdf
+
+# Run the service validation routine to ensure the system services are sane
+${PREFIX}/share/trueos/scripts/validate-services.sh ${PREFIX}/etc/trueos/required-services-desktop ${PREFIX}/etc/trueos/recommended-services-desktop
+
+exit 0

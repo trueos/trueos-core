@@ -1,0 +1,24 @@
+# Ensure PATH is setup properly
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:${HOME}/bin; export PATH
+
+#Setup XDG environment variables (may be modified by DE/WM later)
+export XDG_DATA_DIRS="/share:/usr/share:/usr/local/share"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CONFIG_DIRS="/usr/local/etc/xdg"
+export XDG_CONFIG_HOME="${HOME}/.config"
+
+# Check for any other TrueOS-specific setup scripts
+for i in $(ls /usr/local/share/trueos/xstartup/*.sh)
+do
+	# in-line startup scripts (may set environment variables)
+	if [ -x "${i}" ] ; then 
+		. ${i}
+	fi
+done
+for i in $(ls /usr/local/share/trueos/xstartup-parallel/*.sh)
+do
+	# Parallelized startup scripts
+	if [ -x "${i}" ] ; then 
+		(. ${i}) & 
+	fi
+done

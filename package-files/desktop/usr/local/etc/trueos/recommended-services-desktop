@@ -1,0 +1,11 @@
+# ==============================
+# File for listing service actions that are required when this package is installed
+#==============================
+#  Line Format: <add/delete>:<servicename>:[runlevel]
+#==============================
+add:cupsd:default
+add:moused:default
+add:sndiod:default
+add:pcdm:default
+add:webcamd:default
+delete:cupsd-browsed:default

@@ -1,10 +1,15 @@
 #!/bin/sh
 
 STAGEDIR=$1
+TYPE=$2
+#TYPE: [ core, desktop, server ]
 
+if [ -z "${TYPE}" ] ; then
+  #invalid type
+  exit 1
+fi
 #
-cp -R ./usr ${STAGEDIR}/.
-cp -R ./boot ${STAGEDIR}/.
+cp -R ./${TYPE} ${STAGEDIR}/.
 
 #Ensure owner of files are all set to root:wheel
 if [ -n "${STAGEDIR}" ] ; then

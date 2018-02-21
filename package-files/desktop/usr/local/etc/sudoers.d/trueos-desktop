@@ -1,0 +1,14 @@
+# TrueOS Desktop Sudoers setup
+# Changes to this file will be lost!
+# Make any overrides at the bottom of /usr/local/etc/sudoers
+#  (Below the sudoers.d parsing on ~ line 105)
+## =====================
+#Allow wheel group to execute any command (with password)
+%wheel ALL=(ALL) ALL
+
+#Environment Variables that need to be passed-through for consistent X11/desktop usage
+Defaults env_keep += "KDE_FULL_SESSION GNOME_DESKTOP_SESSION_ID DESKTOP_SESSION PCDM_SESSION"
+Defaults env_keep += "XAPPLRESDIR XFILESEARCHPATH XUSERFILESEARCHPATH"
+Defaults env_keep += "QTDIR KDEDIR XCURSOR_THEME"
+Defaults env_keep += "XDG_SESSION_COOKIE"
+Defaults env_keep += "XMODIFIERS GTK_IM_MODULE QT_IM_MODULE QT_IM_SWITCHER"

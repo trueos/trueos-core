@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Start the reset firewall script
+/usr/local/share/trueos/scripts/reset-firewall
+rm /tmp/.tormode_enabled
+
+cat << EOF
+
+Tor mode has been disabled
+
+EOF

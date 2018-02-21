@@ -1,0 +1,90 @@
+#!/sbin/openrc-run
+# Copyright (c) 2007-2015 The OpenRC Authors.
+# See the Authors file at the top-level directory of this distribution and
+# https://github.com/OpenRC/openrc/blob/master/AUTHORS
+#
+# This file is part of OpenRC. It is subject to the license terms in
+# the LICENSE file found in the top-level directory of this
+# distribution and at https://github.com/OpenRC/openrc/blob/master/LICENSE
+# This file may not be copied, modified, propagated, or distributed
+# except according to the terms contained in the LICENSE file.
+
+depend()
+{
+	before pcdm
+	after modules
+}
+
+start()
+{
+        echo "Starting TrueOS init.."
+        if [ -e "/var/.trueos-firstboot" ] ; then
+                (/usr/local/share/trueos/scripts/first-boot.sh >/dev/null 2>/dev/null ; rm /var/.trueos-firstboot)&
+        fi
+
+	# Make sure system dbus service is not in runlevel first
+	if [ -L /etc/runlevels/default/dbus ] ; then
+	  einfo "Skipping machine-id generation while dbus is present in default runlevel"
+	else
+	# QT needs dbus machine-id generated once
+	# This allows us to skip starting dbus system service
+	# Which fixes gvfs crashiness with many GTK applications
+	  if [ ! -e "/var/lib/dbus/machine-id" ] ; then
+	  einfo "TrueOS init creating machine-id for QT applications.."
+          /usr/local/bin/dbus-uuidgen --ensure
+	  fi
+        fi
+
+	# Check for extra kernel modules to load for video
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q -e "modesetting" -e "intel"
+	if [ $? -eq 0 ] ; then
+	  kldstat | grep -q "i915kms"
+	    if [ $? -ne 0 ] ; then
+	      kldload /boot/modules/i915kms.ko
+	  fi
+	fi
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "vboxvideo"
+        if [ $? -eq 0 ] ; then
+	  kldstat | grep -q "vboxguest"
+	    if [ $? -ne 0 ] ; then
+              kldload vboxguest
+	  fi
+        fi
+	cat /etc/X11/xorg.conf 2>/dev/null | grep -q "nvidia"
+	if [ $? -eq 0 ] ; then
+	  if [ -f "/boot/modules/nvidia-modeset.ko" ] ; then
+	    kldstat | grep -q "nvidia-modeset"
+	    if [ $? -ne 0 ] ; then
+	      kldload nvidia-modeset
+          else
+            kldstat | grep -q "nvidia"
+            if [ $? -ne 0 ] ; then
+	    kldload nvidia
+	      fi
+	    fi
+	  fi
+        fi
+
+        # Check for any new wifi devices to setup
+        for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
+        do
+                cat /etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+                if [ $? -ne 0 ] ; then
+                        # We have a wifi device, setup a wlan* entry for it
+                        grep -q "^wlans_" /etc/rc.conf
+                        if [ $? -eq 0 ] ; then
+                                WLANCOUNT=`cat /etc/rc.conf | grep "^wlans_" | wc -l | awk '{print $1}'`
+                        else
+                                WLANCOUNT="0"
+                        fi
+                        WLAN="wlan${WLANCOUNT}"
+
+                        # Save the wlan interface
+                        echo "wlans_${wnic}=\"${WLAN}\"" >>/etc/rc.conf
+                        echo "ifconfig_${WLAN}=\"WPA DHCP\"" >>/etc/rc.conf
+                        echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+			service network restart
+                fi
+        done
+
+}

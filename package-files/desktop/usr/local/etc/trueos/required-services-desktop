@@ -1,0 +1,6 @@
+# ==============================
+# File for listing service actions that are required when this package is installed
+#==============================
+#  Line Format: <add/delete>:<servicename>:[runlevel]
+#==============================
+add:trueosinit:default

@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# PROVIDE: trueosinit
+# REQUIRE: DAEMON cups
+# KEYWORD: nojail shutdown
+
+. /etc/rc.subr
+
+name="trueosinit"
+rcvar=trueosinit_enable
+
+stop_cmd="trueosinit_stop"
+start_cmd="trueosinit_start"
+
+load_rc_config $name
+
+: ${trueosinit_enable=NO}
+
+trueosinit_start()
+{
+	echo "Starting TrueOS init.."
+	if [ -e "/var/.trueos-firstboot" ] ; then
+		(/usr/local/share/trueos/scripts/first-boot.sh >/dev/null 2>/dev/null ; rm /var/.trueos-firstboot)&
+	fi
+
+	# Check for any new wifi devices to setup
+	for wnic in `sysctl -b net.wlan.devices 2>/dev/null`
+	do
+		cat /etc/rc.conf 2>/dev/null | grep -q "wlans_${wnic}="
+		if [ $? -ne 0 ] ; then
+			# We have a wifi device, setup a wlan* entry for it
+			grep -q "^wlans_" /etc/rc.conf
+			if [ $? -eq 0 ] ; then
+				WLANCOUNT=`cat /etc/rc.conf | grep "^wlans_" | wc -l | awk '{print $1}'`
+			else
+				WLANCOUNT="0"
+			fi
+			WLAN="wlan${WLANCOUNT}"
+
+			# Save the wlan interface
+			echo "wlans_${wnic}=\"${WLAN}\"" >>/etc/rc.conf
+
+			# Create the wlanX device
+			ifconfig $WLAN create wlandev $wnic
+
+			echo "ifconfig_${WLAN}=\"WPA SYNCDHCP\"" >>/etc/rc.conf
+			echo "ifconfig_${WLAN}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+		fi
+	done
+
+}
+
+trueosinit_stop()
+{
+}
+
+run_rc_command "$1"
