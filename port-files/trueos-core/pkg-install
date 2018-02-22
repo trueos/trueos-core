@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to install preload.conf
+# Script to run the service management script and other post-install stuff
 
 PREFIX=${PKG_PREFIX-/usr/local}
 

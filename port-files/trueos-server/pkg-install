@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to install preload.conf
+# Script to run the service management script and other post-install stuff
 
 PREFIX=${PKG_PREFIX-/usr/local}
 
@@ -15,31 +15,7 @@ if [ $? -eq 0 ] ; then
    exit 0
 fi
 
-
-# Enable the OpenRC services
-
-if [ ! -e "/var/.openrc-migrate-1" ] ; then
-  /sbin/rc-update add devd boot
-  /sbin/rc-update add routing boot
-  /sbin/rc-update delete dhcpcd default
-  /sbin/rc-update delete wpa_supplicant default
-  /sbin/rc-update add sysadm default
-  /sbin/rc-update add bsdstats default
-fi
-touch /var/.openrc-migrate-1
-
-if [ ! -e "/var/.openrc-migrate-3" ] ; then
-  if [ -e "/etc/conf.d/modules" ] ; then
-    cat /etc/conf.d/modules | grep -v "modules=" > /etc/conf.d/modules.new
-    mv /etc/conf.d/modules.new /etc/conf.d/modules
-    chmod 755 /etc/conf.d/modules
-  fi
-fi
-touch /var/.openrc-migrate-3
-
-if [ ! -e "/var/.openrc-migrate-4" ] ; then
-    /sbin/rc-update add mountlate default
-fi
-touch /var/.openrc-migrate-4
+# Run the service validation routine to ensure the system services are sane
+${PREFIX}/share/trueos/scripts/validate-services.sh ${PREFIX}/etc/trueos/required-services-server ${PREFIX}/etc/trueos/recommended-services-server
 
 exit 0

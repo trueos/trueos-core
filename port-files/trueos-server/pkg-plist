@@ -1,1 +1,2 @@
-@sample etc/trueos.conf etc/trueos.conf.dist
+etc/trueos/required-services-server
+etc/trueos/recommended-services-server

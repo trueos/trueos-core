@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to install preload.conf
+# Script to do any post-install system changes
 
 PREFIX=${PKG_PREFIX-/usr/local}
 
