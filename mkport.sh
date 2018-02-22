@@ -3,7 +3,6 @@
 # from a checked out git repo
 
 # Set the port category
-portcat="misc/"
 dfile="trueos-core"
 
 #Get the current Git tag
@@ -82,33 +81,39 @@ rm ${distdir}/${dfile}-* 2>/dev/null
 
 
 origdir=`pwd`
+portcat="misc/"
 for port in `ls port-files`
 do
   # Copy ports files
+  cd "${origdir}"
   echo "Updating port: ${portcat}${port}"
+
   if [ -d "${portsdir}/${portcat}${port}" ] ; then
-    rm -rf ${portsdir}/${portcat}${port} 2>/dev/null
+    #echo " - Remove old port directory: ${portcat}${port}"
+    rm -rf "${portsdir}/${portcat}${port}" 2>/dev/null
   fi
-  cp -r port-files/${port} ${portsdir}/${portcat}${port}
+  #echo " - Copy over new port directory: port-files/${port} -> ${portcat}${port}"
+  cp -R "${origdir}/port-files/${port}" "${portsdir}/${portcat}."
 
   # Set the version numbers
+  #echo " - Replace the version/tag info in the port"
   sed -i '' "s|%%CHGVERSION%%|${verTag}|g" ${portsdir}/${portcat}${port}/Makefile
   sed -i '' "s|%%GHTAG%%|${ghtag}|g" ${portsdir}/${portcat}${port}/Makefile
 
   # Create the makesums / distinfo file
   cd "${portsdir}/${portcat}${port}"
-  make makesum
+  #echo " - Update the distinfo for the port"
+  make makesum 2>/dev/null
   if [ $? -ne 0 ] ; then
     echo "Failed makesum"
     exit 1
   fi
 
   # Update port cat Makefile
-  tcat=$(echo $port | cut -d '/' -f 1)
+  tcat=$(echo $portcat | cut -d '/' -f 1)
   massage_subdir ${portsdir}/${tcat}
-  # go back to the original directory for the next iteration
-  cd ${origdir}
 done
+
 
 #Reset a couple variables for the automation routine which runs this:
 port="misc/trueos-core"
