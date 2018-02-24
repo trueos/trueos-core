@@ -9,7 +9,7 @@ if [ -z "${TYPE}" ] ; then
   exit 1
 fi
 #
-cp -R ./${TYPE} ${STAGEDIR}/.
+tar cvf - -C ${TYPE} . | tar xvf - -C ${STAGEDIR}
 
 #Ensure owner of files are all set to root:wheel
 if [ -n "${STAGEDIR}" ] ; then
