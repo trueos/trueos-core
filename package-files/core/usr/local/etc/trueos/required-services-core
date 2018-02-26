@@ -10,5 +10,8 @@ add:devd:boot
 add:devfs:boot
 add:routing:boot
 
+# Yep need dbus still
+add:dbus:boot
+
 #Ensure the hald service is never enabled at boot (major security vulnerability)
 delete:hald:default

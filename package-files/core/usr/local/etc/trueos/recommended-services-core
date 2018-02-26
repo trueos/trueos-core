@@ -8,7 +8,6 @@ add:openntpd:default
 #Services from packages
 delete:avahi-daemon:default
 delete:avahi-dnsconfd:default
-delete:dbus:default
 delete:wpa_supplicant:default
 delete:dhcpcd:default
 
