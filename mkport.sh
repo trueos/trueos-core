@@ -116,5 +116,5 @@ done
 
 
 #Reset a couple variables for the automation routine which runs this:
-port="misc/trueos-core"
+port="misc/trueos-core misc/trueos-desktop misc/trueos-server"
 export bPort="misc/trueos-core"

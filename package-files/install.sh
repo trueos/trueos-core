@@ -4,19 +4,24 @@ STAGEDIR=$1
 TYPE=$2
 #TYPE: [ core, desktop, server ]
 
-if [ -z "${TYPE}" ] ; then
-  #invalid type
+case ${TYPE} in
+  core|desktop|server) ;;
+  *) exit 1 ;;
+esac
+
+echo "Installing $TYPE files -> ${STAGEDIR}"
+tar cf - -C ${TYPE} . | tar xf - -C ${STAGEDIR}
+if [ $? -ne 0 ] ; then
+  echo "Failed installing files..."
   exit 1
 fi
-#
-cp -R ./${TYPE} ${STAGEDIR}/.
 
-#Ensure owner of files are all set to root:wheel
-if [ -n "${STAGEDIR}" ] ; then
-  for i in `find ${STAGEDIR}`
-  do
-    chown "root:wheel" ${i}
-  done
+# Ensure owner of files are all set to root:wheel if installing as root
+if [ "$(id -u)" = "0" ] ; then
+    chown -R root:wheel ${STAGEDIR}
 fi
+
+sleep 2
+sync
 
 exit 0
