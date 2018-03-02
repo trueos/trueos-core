@@ -4,6 +4,7 @@
 #  Line Format: <add/delete>:<servicename>:[runlevel]
 #==============================
 add:openntpd:default
+add:ipfw:boot
 
 #Services from packages
 delete:avahi-daemon:default
