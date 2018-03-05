@@ -90,7 +90,7 @@ if [ "${recfilecontents}" != "${recfileold}" ] ; then
     tmp=`echo ${recfileold} | grep -w "${i}"`
     #echo "Got comparison: ${i}, ${tmp}"
     if [ -z ${tmp} ] ; then
-      rc-update ${_act} ${_service} ${_runlevel}
+      rc-update ${_act} ${_service} ${_runlevel} >/dev/null 2>/dev/null
     fi
 
   done
@@ -106,7 +106,7 @@ if [ -e "${forcefile}" ] ; then
     if ! service_exists ; then continue ; fi
     if state_same ; then continue ; fi
 
-    rc-update ${_act} ${_service} ${_runlevel}
+    rc-update ${_act} ${_service} ${_runlevel} >/dev/null 2>/dev/null
   done
 fi
 
