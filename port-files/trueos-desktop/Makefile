@@ -24,7 +24,6 @@ RUN_DEPENDS=	trueos-core>=0:misc/trueos-core \
 		${LOCALBASE}/bin/xdg-open:devel/xdg-utils \
 		${LOCALBASE}/bin/xvkbd:x11/xvkbd \
 		cups-filters>=0:print/cups-filters \
-		drm-next-kmod>=g20170918:graphics/drm-next-kmod \
 		trueos-handbook>=0:misc/trueos-handbook \
 		lumina>=0:x11/lumina \
 		foomatic-db>=0:print/foomatic-db \
