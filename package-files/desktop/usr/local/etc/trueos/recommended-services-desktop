@@ -3,6 +3,7 @@
 #==============================
 #  Line Format: <add/delete>:<servicename>:[runlevel]
 #==============================
+add:ipfw:boot
 add:cupsd:default
 add:moused:default
 add:sndiod:default
