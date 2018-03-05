@@ -105,9 +105,6 @@ if [ -e "/root/defaultpkgbranch" ] ; then
   sed -i '' "/PACKAGE_SET:/s/.*/PACKAGE_SET: $DPB/" /usr/local/etc/trueos.conf
 fi
 
-# Boot-strap the PKG config
-pc-updatemanager syncconf
-
 ################################################
 # Specific setup if installing into pre-built VM
 ################################################
