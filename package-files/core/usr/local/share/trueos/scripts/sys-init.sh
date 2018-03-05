@@ -24,9 +24,6 @@ fi
 # Init the firewall
 sh /usr/local/share/trueos/scripts/reset-firewall
 
-# Update XDG menus
-/usr/local/bin/pc-xdgutil updatemenu
-
 # Add our notice to top of loader.conf
 if [ -e "/boot/loader.conf" ] ; then
   mv /boot/loader.conf /boot/loader.conf.tmp
