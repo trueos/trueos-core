@@ -10,5 +10,20 @@
 Defaults env_keep += "KDE_FULL_SESSION GNOME_DESKTOP_SESSION_ID DESKTOP_SESSION PCDM_SESSION"
 Defaults env_keep += "XAPPLRESDIR XFILESEARCHPATH XUSERFILESEARCHPATH"
 Defaults env_keep += "QTDIR KDEDIR XCURSOR_THEME"
-Defaults env_keep += "XDG_SESSION_COOKIE"
+Defaults env_keep += "XDG_SESSION_COOKIE XDG_CURRENT_DESKTOP"
 Defaults env_keep += "XMODIFIERS GTK_IM_MODULE QT_IM_MODULE QT_IM_SWITCHER"
+
+# Allow passwordless access to the network manager utilities (wheel group)
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-ethernetconfig
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-netmanager
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-nettray
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-wificonfig
+
+# Allow passwordless access to the network manager utilities (operator group)
+%operator ALL = NOPASSWD: /usr/local/bin/pc-ethernetconfig
+%operator ALL = NOPASSWD: /usr/local/bin/pc-netmanager
+%operator ALL = NOPASSWD: /usr/local/bin/pc-nettray
+%operator ALL = NOPASSWD: /usr/local/bin/pc-wificonfig
+
+# Allow passwordless access to run life preserver (wheel group only)
+%wheel ALL = NOPASSWD: /usr/local/bin/life-preserver
