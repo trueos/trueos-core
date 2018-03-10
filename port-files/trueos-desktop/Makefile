@@ -38,6 +38,7 @@ RUN_DEPENDS=	trueos-core>=0:misc/trueos-core \
 		xv>=0:graphics/xv \
 		socat>=0:net/socat \
 		mesa-demos>=0:graphics/mesa-demos \
+		drm-next-kmod>=0:graphics/drm-next-kmod \
 		xdg-user-dirs>=0:devel/xdg-user-dirs
 
 CONFLICTS=      pcbsd-utils-[0-9]* trueos-server-[0-9]*
