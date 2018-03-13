@@ -15,6 +15,9 @@ add path 'video[0-9]*' mode 666
 add path 'dri/*' mode 666
 add path 'drm/*' mode 666
 
+# USB Human Interface Devices
+add path 'uhid[0-9]' mode 666
+
 #Scanners (xsane?)
 #add path 'uscan[0-9]*' mode 666
 
