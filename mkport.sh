@@ -2,9 +2,6 @@
 # Helper script which will create the port / distfiles
 # from a checked out git repo
 
-# Set the port category
-dfile="trueos-core"
-
 #Get the current Git tag
 ghtag=`git log -n 1 . | grep '^commit ' | awk '{print $2}'`
 
@@ -77,6 +74,7 @@ else
 fi
 
 # Cleanup old distfiles
+dfile="trueos-core"
 rm ${distdir}/${dfile}-* 2>/dev/null
 
 
@@ -117,4 +115,4 @@ done
 
 #Reset a couple variables for the automation routine which runs this:
 port="misc/trueos-core misc/trueos-desktop misc/trueos-server"
-export bPort="misc/trueos-core"
+export bPort="misc/trueos-desktop"

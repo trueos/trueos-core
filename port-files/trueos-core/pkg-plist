@@ -8,6 +8,7 @@ bin/warden-to-iocage
 etc/devd/automount.conf
 etc/trueos/required-services-core
 etc/trueos/recommended-services-core
+share/trueos/conf/torrc
 share/trueos/scripts/mkzfsdir.sh
 share/trueos/scripts/reset-firewall
 share/trueos/scripts/reset-firewall-tor
