@@ -114,5 +114,9 @@ done
 
 
 #Reset a couple variables for the automation routine which runs this:
+#Ports to test build
 port="misc/trueos-core misc/trueos-desktop misc/trueos-server"
+#pkgs to pre-install before doing the port test
+pkg_dep="drm-next-kmod"
+
 export bPort="misc/trueos-desktop"
