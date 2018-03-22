@@ -1,0 +1,103 @@
+#!/sbin/openrc-run
+# Copyright (c) 2018 the TrueOS Project <www.trueos.org>
+# Available under the 2-clause BSD license
+
+name="net-online"
+description="Becomes active when networking is usable"
+extra_commands="retest autorestart"
+interval=${retest_interval:-2}
+#start_inactive="yes"
+
+depend()
+{
+	need rpcbind
+	after net
+	provide network-online
+	keyword -timeout
+}
+
+check_online()
+{
+  #Main function: Just see if there is anything listening at the standard gateway (I.E. IP can be resolved)
+  nc -uz 255.255.255.255 111 > /dev/null 2>&1
+  ok=$?
+  if [ 0 -eq ${ok} ] && (yesno "${include_ping_test:-no}") ; then
+    #Optional: Also perform a quick single-ping of a host to verify that it is accessible
+    ping_test_host="${ping_test_host:-google.com}"
+    if [ -n "$ping_test_host" ]; then
+	ping -c 1 "$ping_test_host" > /dev/null 2>&1
+	ok=$?
+    fi
+  fi
+  if [ 0 -eq ${ok} ] ; then
+    mark_service_started net-online
+    return 0
+  else
+    #Not ready yet
+    mark_service_inactive net-online
+    return 1
+  fi
+}
+
+retest(){
+  tout=`service_get_value timeout`
+  #einfo "Retest connection: ${tout}"
+  if [ ${tout} -gt 0 ] && ( ! service_started net-online) ; then
+    : $((tout -= ${interval}))
+    service_set_value timeout ${tout}
+    if (! check_online) ; then
+      if [ ${tout} -le 0 ] ; then
+        mark_service_stopped net-online
+      fi
+    fi
+  fi
+}
+
+autorestart(){
+  #Used for automatic systems to poke this service when device states change
+  # NOTE: If the current state is inactive, just restart the automatic timer system
+  #  This keeps scheduled apps on the schedule for when this becomes active
+  #  if this is already started, go ahead and restart it (scheduling other services which need this for restart as well)
+  if (service_started net-online) ; then
+    #Already active, restart the service (and dependencies)
+    /sbin/service net-online restart
+  else if ! service_stopped ; then
+    #Auto-recheck is still running, go ahead and just reset the timeout
+    service_set_value timeout ${retest_timeout:-120}
+  else
+    #service is stopped, just start it
+    /sbin/service net-online start
+  fi
+}
+
+
+start(){
+  #if  ! check_online ; then
+    #Start the automatic retest routine in the background
+    #tout=${retest_timeout:-120} #retry for 120 seconds by default
+    #service_set_value timeout ${tout}
+    #(sleep ${interval}; /sbin/service net-online retest) &
+  #fi
+  if ! check_online ; then
+    service_set_value timeout ${retest_timeout:-120}
+  fi
+  (while ! service_started net-online && ! service_stopped net-online
+   do
+    #Verify the timeout has not expired
+    tout=`service_get_value timeout`
+    if [ ${tout:-0} -le 0 ] ; then break; fi
+    #Wait for the 
+    sleep ${interval}
+    /sbin/service net-online retest   
+   done) &
+}
+
+status_pre(){
+  # If the automatic retest routine is currently running, show the status of that as well
+  if ! service_started && ! service_stopped ; then
+    tout=`service_get_value timeout`
+    if [ ${tout:-0} -gt 0 ] ; then
+      einfo "Automatically retesting connection: ${tout} seconds remaining"
+    fi
+  fi
+}

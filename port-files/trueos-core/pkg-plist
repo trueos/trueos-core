@@ -6,6 +6,8 @@ bin/trueos-mount
 bin/trueos-unmount
 bin/warden-to-iocage
 etc/devd/automount.conf
+etc/devd/trueos-network.conf
+etc/init.d/net-online
 etc/trueos/required-services-core
 etc/trueos/recommended-services-core
 share/trueos/conf/torrc
