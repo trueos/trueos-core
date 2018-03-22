@@ -58,15 +58,12 @@ autorestart(){
   # NOTE: If the current state is inactive, just restart the automatic timer system
   #  This keeps scheduled apps on the schedule for when this becomes active
   #  if this is already started, go ahead and restart it (scheduling other services which need this for restart as well)
-  if (service_started net-online) ; then
-    #Already active, restart the service (and dependencies)
+  if service_stopped net-online || service_started net-online ; then
+     #service is started/stopped, just restart it
     /sbin/service net-online restart
-  else if ! service_stopped ; then
-    #Auto-recheck is still running, go ahead and just reset the timeout
-    service_set_value timeout ${retest_timeout:-120}
   else
-    #service is stopped, just start it
-    /sbin/service net-online start
+   #Auto-recheck is still running, go ahead and just reset the timeout
+    service_set_value timeout ${retest_timeout:-120}
   fi
 }
 
