@@ -1,9 +1,11 @@
 audio/pianobar
+audio/pavucontrol
 emulators/open-vm-tools
 emulators/virtualbox-ose-additions
 graphics/phototonic
 graphics/xv
 mail/trojita
+mail/thunderbird
 misc/trueos-desktop
 misc/trueos-meta-hunspell
 misc/trueos-server
@@ -22,7 +24,6 @@ sysutils/life-preserver
 sysutils/pc-sysinstall
 sysutils/trueos-utils
 sysutils/trueos-utils-qt5
-www/qupzilla-qt5
 x11/lumina
 x11/nvidia-driver
 x11/nvidia-driver-304
@@ -34,3 +35,4 @@ x11-fonts/noto-lite
 x11-fonts/droid-fonts-ttf
 x11-themes/cursor-jimmac-theme
 x11/xterm
+www/firefox

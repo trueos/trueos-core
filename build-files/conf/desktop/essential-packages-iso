@@ -1,10 +1,11 @@
+audio/pavucontrol
 devel/qt5
 devel/llvm40
 emulators/open-vm-tools
 emulators/virtualbox-ose-additions
 graphics/phototonic
 graphics/xv
-mail/trojita
+mail/thunderbird
 misc/trueos-desktop
 misc/trueos-meta-hunspell
 misc/trueos-server
@@ -17,7 +18,7 @@ sysutils/sysadm
 sysutils/sysadm-client
 sysutils/trueos-utils
 sysutils/trueos-utils-qt5
-www/qupzilla-qt5
+www/firefox
 x11/nvidia-driver
 x11/nvidia-driver-304
 x11/nvidia-driver-340
