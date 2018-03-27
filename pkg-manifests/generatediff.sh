@@ -38,6 +38,21 @@ findInFile(){
   _line=`grep "^${1} " "${2}" | head -1`
 }
 
+insertHeaderLine(){
+  #Inputs: 1: temporary file name
+  # Uses: $difffile, $rem_file, $up_file, $add_file
+  _file="$1"
+  pkg_count=`wc -l "${_file}" | cut -w -f 2`
+  #Label the section
+  if [ "${_file}" = "${add_file}" ] ; then
+    echo "New Packages (${pkg_count}):" >> "${difffile}"
+  elif [ "${_file}" = "${rem_file}" ] ; then
+    echo "Removed Packages (${pkg_count}):" >> "${difffile}"
+  elif [ "${_file}" = "${up_file}" ] ; then
+    echo "Updated Packages (${pkg_count}):" >> "${difffile}"
+  fi
+}
+
 oldfile=$1
 newfile=$2
 difffile=$3
@@ -95,23 +110,26 @@ if [ -e "${difffile}" ] ; then
   rm "${difffile}"
 fi
 
+# Add the summary section to the top of the diff
+echo "Summary of changes
+----------------" >> "${difffile}"
 for file in ${add_file} ${rem_file} ${up_file}
 do
   if [ ! -e "${file}" ] ; then continue; fi
-  pkg_count=`wc -l "${file}" | cut -w -f 2`
+  insertHeaderLine "${file}"
+done
+
+#Now add the detailed sections
+for file in ${add_file} ${rem_file} ${up_file}
+do
+  if [ ! -e "${file}" ] ; then continue; fi
+  #Add a section break if needed
   if [ -e "${difffile}" ] ; then
     echo "
 ----------------" >> "${difffile}"
   fi
-  #Label the section
-  if [ "${file}" = "${add_file}" ] ; then
-    echo "New Packages (${pkg_count}):" >> "${difffile}"
-  elif [ "${file}" = "${rem_file}" ] ; then
-    echo "Removed Packages (${pkg_count}):" >> "${difffile}"
-  elif [ "${file}" = "${up_file}" ] ; then
-    echo "Updated Packages (${pkg_count}):" >> "${difffile}"
-  fi
-    echo "----------------" >> "${difffile}"
+  insertHeaderLine ${file}
+  echo "----------------" >> "${difffile}"
   #Dump to the diff file and remove the temporary one
   cat "${file}" >> "${difffile}"
   rm "${file}"
