@@ -21,6 +21,17 @@ pkgVersionFromLine(){
   return 0
 }
 
+sameVersions(){
+  #Input 1 is the pkg version to trim
+  _tmp1=`echo $1 | rev | cut -d _ -f2- | rev`
+  _tmp2=`echo $2 | rev | cut -d _ -f2- | rev`
+  if [ "${_tmp1}" = "${_tmp2}" ] ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 findInFile(){
   #Inputs: 1: package name 2: file to search
   # It sets the "_line" variable as the output
@@ -56,7 +67,8 @@ do
     echo "${_pkg}" >> ${rem_file}
   else 
     pkgVersionFromLine "${_line}"
-    if [ "${_oldver}" = "${_version}" ] ; then
+    sameVersions "${_oldver}" "${_version}"
+    if [ $? -eq 0 ] ; then
       #Version unchanged
       #echo "Unchanged: ${_pkg}"
     else
