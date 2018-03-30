@@ -1,15 +1,20 @@
-Summary of changes between TrueOS 17.12 and 18.03 
+Summary of changes
 ----------------
-New Packages: 2461
-Removed Packages: 829
-Updated Packages: 2984
+New Packages (2461):
+Removed Packages (829):
+Updated Packages (2984):
 
 Notes about package statistics:
-* Some packages that have been renamed between releases (such as the KDE4 packages) will show up on both the removed list (old name) and the new list (new name) simultaneously.
-* Many of the new packages are due to the new “flavor” system being activated for python-based ports. This means that many of those applications now have two packages available, one for python 2.7 (py27-*) and one for python 3.6 (py36-*).
-* The list of updated packages does not include those where the port revision is the only thing that has changed. It only accounts for an actual change in the upstream version of the package.
 
+* Some packages that have been renamed between releases (like the KDE4 packages)
+	will appear on both the removed list (old name) and the new list (new name).
+* Many of the new packages are the result of the new “flavor” system being activated
+	for Python based ports. Many of these applications now have two packages
+	available, one for Python 2.7 (py27-*) and one for Python 3.6 (py36-*).
+* The updated packages list does not include minor port revision changes. The list only
+	contains those that had an actual change in the upstream version of the application.
 
+----------------
 New Packages (2461):
 ----------------
 ALPSCore : 2.1.1
@@ -2381,7 +2386,7 @@ tramp-emacs27 : 2.3.0_4
 tramp-emacs27_nox : 2.3.0_4
 trezord : 1.2.1_1
 trueos-core : 201803131015
-trueos-ports-src : 201803242229
+trueos-ports-src : 201803281709
 tuareg-mode-emacs25 : 2.0.8_4,1
 tuareg-mode-emacs25_canna : 2.0.8_4,1
 tuareg-mode-emacs25_nox : 2.0.8_4,1
@@ -3561,7 +3566,7 @@ de-wordpress : 4.9 -> 4.9.4
 debhelper : 10.10.9 -> 11.1.4
 debootstrap : 1.0.92 -> 1.0.93
 desktop-installer : 0.5.4 -> 0.6.0
-devcpu-data : 1.11_1 -> 1.15_1
+devcpu-data : 1.11_1 -> 1.16
 dhcprelya : 5.0 -> 6.1
 diamond : 0.9.13 -> 0.9.17
 dilay : 1.5.0_3 -> 1.6.1.11
@@ -4656,7 +4661,7 @@ parallel : 20170122 -> 20171222
 pari : 2.9.3_1,2 -> 2.9.4,2
 passwordsafe : 1.02.1.b -> 1.03.b
 patch : 2.7.5 -> 2.7.6
-pc-mixer : 20170804 -> 20171212
+pc-mixer : 20170804 -> 20180328
 pc-sysinstall : 20171211 -> 20180228
 pcapfix : 1.1.0 -> 1.1.1
 pcdm : 201801031222 -> 201803101421
