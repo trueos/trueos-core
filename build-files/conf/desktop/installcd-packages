@@ -18,7 +18,6 @@ xorg-server-\*.txz
 xf86-video-scfb-\*.txz
 xkbcomp-\*.txz
 xkeyboard-config-\*.txz
-xf86-input-synaptics-\*.txz
 xinit-\*.txz
 xauth-\*.txz
 xdpyinfo-\*.txz
