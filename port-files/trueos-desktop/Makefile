@@ -36,6 +36,13 @@ RUN_DEPENDS=	trueos-core>=0:misc/trueos-core \
 		x11vnc>=0:net/x11vnc \
 		git:devel/git \
 		xv>=0:graphics/xv \
+		fcitx-m17n>=0:textproc/fcitx-m17n \
+		fcitx-qt5>=0:textproc/fcitx-qt5 \
+		ja-fcitx-mozc>=0:japanese/fcitx-mozc \
+		ko-fcitx-hangul>=0:korean/fcitx-hangul \
+		zh-fcitx-configtool>=0:chinese/fcitx-configtool \
+		zh-fcitx-chewing>=0:chinese/fcitx-chewing \
+		zh-fcitx-cloudpinyin>=0:chinese/fcitx-cloudpinyin \
 		socat>=0:net/socat \
 		mesa-demos>=0:graphics/mesa-demos \
 		/boot/modules/drm.ko:graphics/drm-next-kmod \
